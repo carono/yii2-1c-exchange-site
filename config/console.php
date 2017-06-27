@@ -5,12 +5,22 @@ $db = require(__DIR__ . '/db.php');
 
 $config = [
     'id' => 'basic-console',
+    'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'ru',
+                ],
+            ],
         ],
         'log' => [
             'targets' => [

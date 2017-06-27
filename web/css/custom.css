@@ -1,0 +1,11 @@
+.product-thumb {
+    height: 300px;
+    border: 1px solid darkgray;
+    margin: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.product-thumb img {
+    max-width: 170px;
+}

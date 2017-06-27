@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "carono/yii2-installer": "^0.0.14",
-        "carono/yii2-1c-exchange": "^0.2.0"
+        "carono/yii2-1c-exchange": "^0.2.0",
+        "carono/yii2-giix": "^0.1.3",
+        "carono/yii2-file-upload": "^0.0.2"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

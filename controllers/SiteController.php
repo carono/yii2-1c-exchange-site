@@ -2,9 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\Group;
+use app\models\Offer;
+use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -122,5 +126,22 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionGroup($id)
+    {
+        if (!$group = Group::findOne(['id' => (int)$id])) {
+            throw new NotFoundHttpException('Group not found');
+        }
+        $dataProvider = Offer::find()->joinWith(['product'])->andWhere(['group_id' => $group->id])->search();
+        return $this->render('product', ['group' => $group, 'dataProvider' => $dataProvider]);
+    }
+
+    public function actionOffer($id)
+    {
+        if (!$offer = Offer::findOne(['id' => (int)$id])) {
+            throw new NotFoundHttpException('Offer not found');
+        }
+        return $this->render('offer', ['offer' => $offer]);
     }
 }

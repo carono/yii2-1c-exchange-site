@@ -1,4 +1,6 @@
 <?php
+use \app\models\Offer;
+use app\models\Price;
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
@@ -7,6 +9,32 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru',
+    'modules' => [
+        'exchange' => [
+            'class' => 'carono\exchange1c\ExchangeModule',
+            'productClass' => 'app\models\Product',
+            'on beforeUpdateOffer' => function ($event) {
+                /**
+                 * @var \carono\exchange1c\ExchangeEvent $event
+                 * @var Offer $offer
+                 */
+                $model = $event->model;
+                $ml = $event->ml;
+                foreach (Offer::find()->andWhere(['accounting_id' => $ml->id])->batch() as $offers) {
+                    foreach ($offers as $offer) {
+                        if ($offer->price && $offer->price->type) {
+                            $offer->price->type->delete();
+                        } elseif ($offer->price) {
+                            $offer->price->delete();
+                        } else {
+                            $offer->delete();
+                        }
+                    }
+                }
+            },
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -14,6 +42,15 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'ru',
+                ],
+            ],
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -39,14 +76,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'carono\exchange1c\UrlRule'],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
