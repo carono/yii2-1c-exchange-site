@@ -4,6 +4,7 @@ namespace app\models;
 
 use carono\exchange1c\interfaces\GroupInterface;
 use carono\exchange1c\interfaces\ProductInterface;
+use carono\yii2installer\traits\PivotTrait;
 use Yii;
 use \app\models\base\Product as BaseProduct;
 use yii\behaviors\TimestampBehavior;
@@ -20,6 +21,8 @@ use Zenwalker\CommerceML\Model\Simple;
  */
 class Product extends BaseProduct implements ProductInterface
 {
+    use PivotTrait;
+
     /**
      * Если по каким то причинам файлы import.xml или offers.xml были модифицированы и какие то данные
      * не попадают в парсер, в самом конце вызывается данный метод, в $product и $cml можно получить все
@@ -133,7 +136,7 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function addImage1c($path, $caption)
     {
-        // TODO: Implement addImage1c() method.
+        $this->addPivot(FileUpload::upload($path), PvProductImage::className());
     }
 
     public function getRequisite1c($name)
@@ -181,6 +184,11 @@ class Product extends BaseProduct implements ProductInterface
 
     public function getImageUrl()
     {
-        return '/images/product.png';
+        if ($this->images) {
+            $image = $this->images[0];
+            return [join('/', ['images', $image->id, $image->getFullName()])];
+        } else {
+            return '/images/product.png';
+        }
     }
 }

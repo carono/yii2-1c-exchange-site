@@ -19,6 +19,8 @@ use Yii;
  *
  * @property \app\models\Offer[] $offers
  * @property \app\models\Group $group
+ * @property \app\models\PvProductImage[] $pvProductImages
+ * @property \app\models\FileUpload[] $images
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -93,6 +95,22 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
     public function getGroup()
     {
         return $this->hasOne(\app\models\Group::className(), ['id' => 'group_id']);
+    }
+
+    /**
+     * @return \app\models\query\PvProductImageQuery
+     */
+    public function getPvProductImages()
+    {
+        return $this->hasMany(\app\models\PvProductImage::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\FileUploadQuery
+     */
+    public function getImages()
+    {
+        return $this->hasMany(\app\models\FileUpload::className(), ['id' => 'image_id'])->viaTable('pv_product_images', ['product_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

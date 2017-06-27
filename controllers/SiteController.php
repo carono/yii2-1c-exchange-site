@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\FileUpload;
 use app\models\Group;
 use app\models\Offer;
 use app\models\Product;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -143,5 +145,14 @@ class SiteController extends Controller
             throw new NotFoundHttpException('Offer not found');
         }
         return $this->render('offer', ['offer' => $offer]);
+    }
+
+    public function actionImage($id)
+    {
+        if (!($file = FileUpload::findOne($id)) || !$file->fileExist()) {
+            throw new FileNotFoundException();
+        }
+        $content = file_get_contents($file->getFullPath());
+        Yii::$app->response->sendContentAsFile($content, $file->getFullName());
     }
 }

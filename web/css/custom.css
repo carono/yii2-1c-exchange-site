@@ -9,3 +9,7 @@
 .product-thumb img {
     max-width: 170px;
 }
+
+.offer-image {
+    max-height: 300px;
+}
