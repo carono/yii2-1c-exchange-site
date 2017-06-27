@@ -185,8 +185,7 @@ class Product extends BaseProduct implements ProductInterface
     public function getImageUrl()
     {
         if ($this->images) {
-            $image = $this->images[0];
-            return [join('/', ['images', $image->id, $image->getFullName()])];
+            return $this->images[0]->getImageUrl();
         } else {
             return '/images/product.png';
         }

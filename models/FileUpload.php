@@ -10,4 +10,12 @@ use carono\yii2file\FileUpload as BaseFileUpload;
  */
 class FileUpload extends BaseFileUpload
 {
+    public function getImageUrl()
+    {
+        if ($this->fileExist()) {
+            return [join('/', ['images', $this->id, $this->getFullName()])];
+        } else {
+            return '/images/product.png';
+        }
+    }
 }
