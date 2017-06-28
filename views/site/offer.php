@@ -2,6 +2,7 @@
 use app\models\Offer;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 
 /**
  * @var Offer $offer
@@ -43,8 +44,9 @@ use yii\widgets\DetailView;
         </a>
     </div>
 
+    <h2>Значения товара</h2>
 <?php
-//echo Html::tag('div', Html::img($offer->product->getImageUrl(), ['class' => 'offer-image']), ['class' => 'text-center']);
+
 echo DetailView::widget([
     'model' => $offer,
     'attributes' => [
@@ -57,4 +59,14 @@ echo DetailView::widget([
         'product.description',
     ],
 ]);
-
+?>
+    <h2>Реквизиты товара</h2>
+<?php
+$dataProvider = $offer->product->getPvProductRequisites()->search();
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'requisite.name',
+        'value',
+    ],
+]);

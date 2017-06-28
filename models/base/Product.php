@@ -21,6 +21,8 @@ use Yii;
  * @property \app\models\Group $group
  * @property \app\models\PvProductImage[] $pvProductImages
  * @property \app\models\FileUpload[] $images
+ * @property \app\models\PvProductRequisite[] $pvProductRequisites
+ * @property \app\models\Requisite[] $requisites
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -111,6 +113,22 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
     public function getImages()
     {
         return $this->hasMany(\app\models\FileUpload::className(), ['id' => 'image_id'])->viaTable('pv_product_images', ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PvProductRequisiteQuery
+     */
+    public function getPvProductRequisites()
+    {
+        return $this->hasMany(\app\models\PvProductRequisite::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\RequisiteQuery
+     */
+    public function getRequisites()
+    {
+        return $this->hasMany(\app\models\Requisite::className(), ['id' => 'requisite_id'])->viaTable('pv_product_requisite', ['product_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

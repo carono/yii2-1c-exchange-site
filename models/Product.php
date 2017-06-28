@@ -72,7 +72,13 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setRequisite1c($name, $value)
     {
-        // TODO: Implement setRequisite1c() method.
+        if (!$requisite = Requisite::findOne(['name' => $name])) {
+            $requisite = new Requisite();
+            $requisite->name = $name;
+            $requisite->save();
+        };
+        $pv = $this->addPivot($requisite, PvProductRequisite::className());
+        $pv->updateAttributes(['value' => $value]);
     }
 
     /**
