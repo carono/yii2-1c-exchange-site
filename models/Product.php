@@ -109,12 +109,17 @@ class Product extends BaseProduct implements ProductInterface
      * $property->value - Разыменованное значение (string) (import.xml > Классификатор > Свойства > Свойство > Значение)
      * $property->getValueModel() - Данные по значению, Ид значения, и т.д (import.xml > Классификатор > Свойства > Свойство > ВариантыЗначений > Справочник)
      *
-     * @param Property $property
+     * @param MlProperty $property
      * @return void
      */
     public function setProperty1c($property)
     {
-        // TODO: Implement setProperty1c() method.
+        $propertyModel = Property::createByMl($property);
+        $pv = $this->addPivot($propertyModel, PvProductProperty::className());
+        if ($value = PropertyValue::findOne(['accounting_id' => (string)$property->getValueModel()->ИдЗначения])) {
+            $pv->updateAttributes(['property_value_id' => $value->id]);
+            unset($pv);
+        }
     }
 
     /**

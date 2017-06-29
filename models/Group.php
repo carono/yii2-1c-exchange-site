@@ -31,7 +31,9 @@ class Group extends BaseGroup
         }
         $model->name = $group->name;
         if ($parent = $group->getParent()) {
-            $model->parent_id = self::createByML($parent)->id;
+            $parentModel = self::createByML($parent);
+            $model->parent_id = $parentModel->id;
+            unset($parentModel);
         } else {
             $model->parent_id = null;
         }

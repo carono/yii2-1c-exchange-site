@@ -14,6 +14,7 @@ $config = [
         'exchange' => [
             'class' => 'carono\exchange1c\ExchangeModule',
             'productClass' => 'app\models\Product',
+            'debug' => true,
             'on beforeUpdateProduct' => function ($event) {
                 /**
                  * @var \app\models\Product $model
@@ -23,6 +24,8 @@ $config = [
                     $image->deleteFile();
                     $image->delete();
                 }
+                unset($image);
+                unset($event);
             },
             'on beforeUpdateOffer' => function ($event) {
                 /**

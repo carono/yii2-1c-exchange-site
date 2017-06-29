@@ -21,6 +21,8 @@ use Yii;
  * @property \app\models\Group $group
  * @property \app\models\PvProductImage[] $pvProductImages
  * @property \app\models\FileUpload[] $images
+ * @property \app\models\PvProductProperty[] $pvProductProperties
+ * @property \app\models\Property[] $properties
  * @property \app\models\PvProductRequisite[] $pvProductRequisites
  * @property \app\models\Requisite[] $requisites
  */
@@ -113,6 +115,22 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
     public function getImages()
     {
         return $this->hasMany(\app\models\FileUpload::className(), ['id' => 'image_id'])->viaTable('pv_product_images', ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PvProductPropertyQuery
+     */
+    public function getPvProductProperties()
+    {
+        return $this->hasMany(\app\models\PvProductProperty::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PropertyQuery
+     */
+    public function getProperties()
+    {
+        return $this->hasMany(\app\models\Property::className(), ['id' => 'property_id'])->viaTable('pv_product_properties', ['product_id' => 'id']);
     }
 
     /**

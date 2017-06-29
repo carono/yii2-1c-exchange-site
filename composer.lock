@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "49782721ea37828ec9b177fe4059bd80",
+    "content-hash": "ec5435575e20ad2f45665e4f8a9249e6",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -236,16 +236,16 @@
         },
         {
             "name": "carono/commerceml",
-            "version": "0.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/php-commerceml.git",
-                "reference": "3020d1ba1fd2e1986744f3489ab149d045b8d2ce"
+                "reference": "561a554637d931117f18a8dfa519f647aa5abbf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/3020d1ba1fd2e1986744f3489ab149d045b8d2ce",
-                "reference": "3020d1ba1fd2e1986744f3489ab149d045b8d2ce",
+                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/561a554637d931117f18a8dfa519f647aa5abbf3",
+                "reference": "561a554637d931117f18a8dfa519f647aa5abbf3",
                 "shasum": ""
             },
             "type": "library",
@@ -276,20 +276,20 @@
                 "1c",
                 "commerceml"
             ],
-            "time": "2017-05-19T08:58:03+00:00"
+            "time": "2017-06-29 14:05:09"
         },
         {
             "name": "carono/yii2-1c-exchange",
-            "version": "0.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-1c-exchange.git",
-                "reference": "9e0432919b76abc731f340aa52dab86c54ef47c8"
+                "reference": "1108161fd4998669c8815bbcad97646aa3460805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/9e0432919b76abc731f340aa52dab86c54ef47c8",
-                "reference": "9e0432919b76abc731f340aa52dab86c54ef47c8",
+                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/1108161fd4998669c8815bbcad97646aa3460805",
+                "reference": "1108161fd4998669c8815bbcad97646aa3460805",
                 "shasum": ""
             },
             "require": {
@@ -310,7 +310,7 @@
                 }
             ],
             "description": "Yii2 module for the exchange of goods and documents from 1C",
-            "time": "2017-06-21T12:25:37+00:00"
+            "time": "2017-06-29 14:08:27"
         },
         {
             "name": "carono/yii2-file-upload",
@@ -4244,7 +4244,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "carono/yii2-1c-exchange": 20,
+        "carono/commerceml": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -70,3 +70,15 @@ echo GridView::widget([
         'value',
     ],
 ]);
+?>
+    <h2>Свойства товара</h2>
+<?php
+$dataProvider = $offer->product->getPvProductProperties()->joinWith(['propertyValue.property'])->search();
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'property.name',
+        'propertyValue.name',
+    ],
+]);
+?>
