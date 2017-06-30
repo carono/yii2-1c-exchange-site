@@ -10,19 +10,22 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $accounting_id
- * @property integer $price_id
  * @property integer $product_id
  * @property string $remnant
+ * @property boolean $is_active
  *
- * @property \app\models\Price $price
  * @property \app\models\Product $product
+ * @property \app\models\PvOfferPrice[] $pvOfferPrices
+ * @property \app\models\Price[] $prices
  * @property \app\models\PvOfferWarehouse[] $pvOfferWarehouses
  * @property \app\models\Warehouse[] $warehouses
+ * @property \app\models\PvOrderOffer[] $pvOrderOffers
+ * @property \app\models\Order[] $orders
  */
 class Offer extends \yii\db\ActiveRecord
 {
 
-protected $_relationClasses = ['price_id'=>'app\models\Price','product_id'=>'app\models\Product'];
+protected $_relationClasses = ['product_id'=>'app\models\Product'];
 
 
     /**
@@ -52,11 +55,11 @@ protected $_relationClasses = ['price_id'=>'app\models\Price','product_id'=>'ap
     public function rules()
     {
         return [
-            [['price_id', 'product_id'], 'integer'],
+            [['product_id'], 'integer'],
             [['remnant'], 'number'],
+            [['is_active'], 'boolean'],
             [['name', 'accounting_id'], 'string', 'max' => 255],
             [['accounting_id'], 'unique'],
-            [['price_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Price::className(), 'targetAttribute' => ['price_id' => 'id']],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::className(), 'targetAttribute' => ['product_id' => 'id']]
         ];
     }
@@ -70,18 +73,10 @@ protected $_relationClasses = ['price_id'=>'app\models\Price','product_id'=>'ap
             'id' => Yii::t('models', 'ID'),
             'name' => Yii::t('models', 'Name'),
             'accounting_id' => Yii::t('models', 'Accounting ID'),
-            'price_id' => Yii::t('models', 'Price ID'),
             'product_id' => Yii::t('models', 'Product ID'),
             'remnant' => Yii::t('models', 'Remnant'),
+            'is_active' => Yii::t('models', 'Is Active'),
         ];
-    }
-
-    /**
-     * @return \app\models\query\PriceQuery
-     */
-    public function getPrice()
-    {
-        return $this->hasOne(\app\models\Price::className(), ['id' => 'price_id']);
     }
 
     /**
@@ -90,6 +85,22 @@ protected $_relationClasses = ['price_id'=>'app\models\Price','product_id'=>'ap
     public function getProduct()
     {
         return $this->hasOne(\app\models\Product::className(), ['id' => 'product_id']);
+    }
+
+    /**
+     * @return \app\models\query\PvOfferPriceQuery
+     */
+    public function getPvOfferPrices()
+    {
+        return $this->hasMany(\app\models\PvOfferPrice::className(), ['offer_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PriceQuery
+     */
+    public function getPrices()
+    {
+        return $this->hasMany(\app\models\Price::className(), ['id' => 'price_id'])->viaTable('pv_offer_prices', ['offer_id' => 'id']);
     }
 
     /**
@@ -106,6 +117,22 @@ protected $_relationClasses = ['price_id'=>'app\models\Price','product_id'=>'ap
     public function getWarehouses()
     {
         return $this->hasMany(\app\models\Warehouse::className(), ['id' => 'warehouse_id'])->viaTable('pv_offer_warehouses', ['offer_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PvOrderOfferQuery
+     */
+    public function getPvOrderOffers()
+    {
+        return $this->hasMany(\app\models\PvOrderOffer::className(), ['offer_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\OrderQuery
+     */
+    public function getOrders()
+    {
+        return $this->hasMany(\app\models\Order::className(), ['id' => 'order_id'])->viaTable('pv_order_offers', ['offer_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

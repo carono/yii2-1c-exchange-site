@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\components\Basket;
 
 AppAsset::register($this);
 ?>
@@ -37,6 +38,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+            ['label' => 'Заказы', 'url' => ['/site/order']],
+            ['label' => 'Корзина' . (Basket::count() ? " (" . Basket::count() . ")" : ''), 'url' => ['/site/basket']],
             ['label' => 'Список товаров', 'url' => ['/site/index']],
             Yii::$app->user->isGuest ? (
             ['label' => 'Вход', 'url' => ['/site/login']]

@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\components\Basket;
 use app\models\FileUpload;
 use app\models\Group;
 use app\models\Offer;
+use app\models\Order;
 use app\models\Product;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Yii;
@@ -154,5 +156,33 @@ class SiteController extends Controller
         }
         $content = file_get_contents($file->getFullPath());
         Yii::$app->response->sendContentAsFile($content, $file->getFullName());
+    }
+
+    public function actionPutToBasket($id)
+    {
+        Basket::put($id, 1);
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    public function actionBasket()
+    {
+        $dataProvider = Offer::find()->andWhere(['id' => Basket::getIds()])->search();
+        return $this->render('basket', ['dataProvider' => $dataProvider]);
+    }
+
+    public function actionPay()
+    {
+        if (!$order = Basket::order()) {
+            return $this->redirect(Yii::$app->request->referrer);
+        } else {
+            $order->updateAttributes(['status_id' => 3]);
+        }
+        return $this->render('pay', ['order' => $order]);
+    }
+
+    public function actionOrder()
+    {
+        $dataProvider = Order::find()->search();
+        return $this->render('order', ['dataProvider' => $dataProvider]);
     }
 }

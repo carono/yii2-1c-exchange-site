@@ -19,6 +19,7 @@ $config = [
                 /**
                  * @var \app\models\Product $model
                  */
+                /*
                 $model = $event->model;
                 foreach ($model->images as $image) {
                     $image->deleteFile();
@@ -26,12 +27,14 @@ $config = [
                 }
                 unset($image);
                 unset($event);
+                */
             },
             'on beforeUpdateOffer' => function ($event) {
                 /**
                  * @var \carono\exchange1c\ExchangeEvent $event
                  * @var Offer $offer
                  */
+                /*
                 $model = $event->model;
                 $ml = $event->ml;
                 foreach (Offer::find()->andWhere(['accounting_id' => $ml->id])->batch() as $offers) {
@@ -45,6 +48,7 @@ $config = [
                         }
                     }
                 }
+                */
             },
         ],
     ],

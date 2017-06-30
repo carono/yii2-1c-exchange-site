@@ -133,11 +133,12 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setPrice1c($offer, $price)
     {
-        $priceType = PriceType::createByMl($price->getType());
         $offerModel = Offer::createByMl($offer);
+        $offerModel->updateAttributes(['product_id' => $this->id]);
+        $priceType = PriceType::createByMl($price->getType());
         $priceModel = Price::createByMl($price);
         $priceModel->updateAttributes(['type_id' => $priceType->id]);
-        $offerModel->updateAttributes(['product_id' => $this->id, 'price_id' => $priceModel->id]);
+        $this->addPivot($priceModel, PvOfferPrice::className());
     }
 
     /**
@@ -147,7 +148,9 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function addImage1c($path, $caption)
     {
-        $this->addPivot(FileUpload::upload($path), PvProductImage::className());
+        if (!$this->getImages()->andWhere(['size' => filesize($path)])->exists()) {
+            $this->addPivot(FileUpload::upload($path), PvProductImage::className());
+        }
     }
 
     public function getRequisite1c($name)

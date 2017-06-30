@@ -3,6 +3,7 @@ use app\models\Offer;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /**
  * @var Offer $offer
@@ -44,8 +45,11 @@ use yii\grid\GridView;
         </a>
     </div>
 
+<?= Html::a('Положить в корзину', $offer->getUrl('put-to-basket'), ['class' => 'btn btn-success']) ?>
+
     <h2>Значения товара</h2>
 <?php
+$price = ArrayHelper::getValue($offer->prices, 0);
 
 echo DetailView::widget([
     'model' => $offer,
@@ -53,9 +57,11 @@ echo DetailView::widget([
         'name',
         'product.article',
         [
-            'attribute' => 'price.value',
-            'format' => ['currency', $offer->price->currency],
+            'attribute' => 'price',
+            'format' => ['currency', $price->currency],
+            'value' => $price->value
         ],
+        'remnant',
         'product.description',
     ],
 ]);

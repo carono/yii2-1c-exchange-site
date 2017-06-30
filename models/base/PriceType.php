@@ -13,6 +13,7 @@ use Yii;
  * @property string $currency
  *
  * @property \app\models\Price[] $prices
+ * @property \app\models\PvOrderOffer[] $pvOrderOffers
  */
 class PriceType extends \yii\db\ActiveRecord
 {
@@ -71,6 +72,14 @@ protected $_relationClasses = [];
     public function getPrices()
     {
         return $this->hasMany(\app\models\Price::className(), ['type_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PvOrderOfferQuery
+     */
+    public function getPvOrderOffers()
+    {
+        return $this->hasMany(\app\models\PvOrderOffer::className(), ['price_type_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

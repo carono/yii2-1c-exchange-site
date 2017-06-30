@@ -14,8 +14,9 @@ use Yii;
  * @property double $rate
  * @property integer $type_id
  *
- * @property \app\models\Offer[] $offers
  * @property \app\models\PriceType $type
+ * @property \app\models\PvOfferPrice[] $pvOfferPrices
+ * @property \app\models\Offer[] $offers
  */
 class Price extends \yii\db\ActiveRecord
 {
@@ -73,19 +74,27 @@ protected $_relationClasses = ['type_id'=>'app\models\PriceType'];
     }
 
     /**
-     * @return \app\models\query\OfferQuery
-     */
-    public function getOffers()
-    {
-        return $this->hasMany(\app\models\Offer::className(), ['price_id' => 'id']);
-    }
-
-    /**
      * @return \app\models\query\PriceTypeQuery
      */
     public function getType()
     {
         return $this->hasOne(\app\models\PriceType::className(), ['id' => 'type_id']);
+    }
+
+    /**
+     * @return \app\models\query\PvOfferPriceQuery
+     */
+    public function getPvOfferPrices()
+    {
+        return $this->hasMany(\app\models\PvOfferPrice::className(), ['price_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\OfferQuery
+     */
+    public function getOffers()
+    {
+        return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_offer_prices', ['price_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {
