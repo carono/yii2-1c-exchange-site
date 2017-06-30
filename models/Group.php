@@ -2,16 +2,15 @@
 
 namespace app\models;
 
-use Yii;
+use carono\exchange1c\interfaces\GroupInterface;
 use \app\models\base\Group as BaseGroup;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
-use Zenwalker\CommerceML\Model\Category;
 
 /**
  * This is the model class for table "group".
  */
-class Group extends BaseGroup
+class Group extends BaseGroup implements GroupInterface
 {
     /**
      * Создаём группу по модели группы CommerceML
@@ -67,5 +66,13 @@ class Group extends BaseGroup
             $items[] = $group->formForMenu();
         }
         return $items;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId1c()
+    {
+        return $this->accounting_id;
     }
 }

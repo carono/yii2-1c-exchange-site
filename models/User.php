@@ -2,7 +2,9 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+use carono\exchange1c\interfaces\PartnerInterface;
+
+class User extends \yii\base\Object implements \yii\web\IdentityInterface, PartnerInterface
 {
     public $id;
     public $username;
@@ -100,5 +102,21 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    public static function getFields1c()
+    {
+       return [];
+    }
+
+    public function getExportFields1c()
+    {
+        return [
+            'Ид' => 'id',
+            'Наименование' => 'username',
+            'ПолноеНаименование' => 'username',
+            'Фамилия' => 'username',
+            'Имя' => 'username',
+        ];
     }
 }

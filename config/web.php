@@ -14,6 +14,8 @@ $config = [
         'exchange' => [
             'class' => 'carono\exchange1c\ExchangeModule',
             'productClass' => 'app\models\Product',
+            'documentClass' => '\app\models\Order',
+            'exchangeDocuments' => true,
             'debug' => true,
             'on beforeUpdateProduct' => function ($event) {
                 /**

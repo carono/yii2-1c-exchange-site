@@ -9,6 +9,7 @@ use Yii;
 use \app\models\base\Product as BaseProduct;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 use Zenwalker\CommerceML\CommerceML;
 use Zenwalker\CommerceML\Model\Group as MlGroup;
 use Zenwalker\CommerceML\Model\Offer as MlOffer;
@@ -183,7 +184,7 @@ class Product extends BaseProduct implements ProductInterface
 
     public function getExportFields1c($context = null)
     {
-        // TODO: Implement getExportFields1c() method.
+
     }
 
     public function behaviors()
