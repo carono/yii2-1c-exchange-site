@@ -30,7 +30,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Carono / yii2-1c-exchange-site',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => ['exchange/default/index'],
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],

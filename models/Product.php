@@ -135,7 +135,10 @@ class Product extends BaseProduct implements ProductInterface
     public function setPrice1c($offer, $price)
     {
         $offerModel = Offer::createByMl($offer);
-        $offerModel->updateAttributes(['product_id' => $this->id]);
+        $offerModel->updateAttributes([
+            'product_id' => $this->id,
+            'remnant' => (string)$offer->Количество
+        ]);
         $priceType = PriceType::createByMl($price->getType());
         $priceModel = Price::createByMl($price);
         $priceModel->updateAttributes(['type_id' => $priceType->id]);

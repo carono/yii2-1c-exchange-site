@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\components\Basket;
 use carono\exchange1c\interfaces\GroupInterface;
+use carono\exchange1c\interfaces\OfferInterface;
 use carono\exchange1c\interfaces\ProductInterface;
 use Yii;
 use \app\models\base\Offer as BaseOffer;
@@ -23,7 +24,7 @@ use Zenwalker\CommerceML\Model\Simple;
  * @property mixed count_in_basket
  * @property mixed sum_in_basket
  */
-class Offer extends BaseOffer implements ProductInterface
+class Offer extends BaseOffer implements OfferInterface
 {
     public function getUrl($action, $asString = false)
     {

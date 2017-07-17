@@ -3,6 +3,7 @@
 namespace app\models;
 
 use carono\exchange1c\interfaces\DocumentInterface;
+use carono\exchange1c\interfaces\OfferInterface;
 use carono\exchange1c\interfaces\PartnerInterface;
 use carono\exchange1c\interfaces\ProductInterface;
 use carono\yii2installer\traits\PivotTrait;
@@ -21,15 +22,15 @@ class Order extends BaseOrder implements DocumentInterface
     /**
      * @return DocumentInterface[]
      */
-    public static function findOrders1c()
+    public static function findDocuments1c()
     {
-        return self::find()->all();
+        return self::find()->andWhere(['status_id' => 2])->all();
     }
 
     /**
-     * @return ProductInterface[]
+     * @return OfferInterface[]
      */
-    public function getProducts1c()
+    public function getOffers1c()
     {
         return $this->offers;
     }
@@ -51,10 +52,10 @@ class Order extends BaseOrder implements DocumentInterface
 
     public static function getFields1c()
     {
-        // TODO: Implement getFields1c() method.
+//         TODO: Implement getFields1c() method.
     }
 
-    public function getExportFields1c()
+    public function getExportFields1c($context = null)
     {
         return [
             'Ид' => 'id',
@@ -66,6 +67,28 @@ class Order extends BaseOrder implements DocumentInterface
             'Валюта' => 'RUB',
             'Курс' => '1',
             'Сумма' => $this->sum,
+            'ЗначенияРеквизитов' => [
+//                [
+//                    '@name' => 'ЗначениеРеквизита',
+//                    '@content' => ['Наименование' => 'Метод оплаты', 'Значение' => 'Наличный расчет']
+//                ],
+//                [
+//                    '@name' => 'ЗначениеРеквизита',
+//                    '@content' => ['Наименование' => 'Заказ оплачен', 'Значение' => 'true']
+//                ],
+//                [
+//                    '@name' => 'ЗначениеРеквизита',
+//                    '@content' => ['Наименование' => 'Доставка разрешена', 'Значение' => 'true']
+//                ],
+                [
+                    '@name' => 'ЗначениеРеквизита',
+                    '@content' => ['Наименование' => 'Статус заказа', 'Значение' => 'Согласовано']
+                ],
+//                [
+//                    '@name' => 'ЗначениеРеквизита',
+//                    '@content' => ['Наименование' => 'Финальный статус', 'Значение' => 'true']
+//                ],
+            ]
 //            'Оплаты'      => [
 //                'Оплата' => [
 //                    'НомерДокумента'   => 'avangard' . $this->id,
@@ -87,5 +110,15 @@ class Order extends BaseOrder implements DocumentInterface
                 'value' => new Expression('NOW()'),
             ],
         ];
+    }
+
+    /**
+     * @param \Zenwalker\CommerceML\CommerceML $cml
+     * @param \Zenwalker\CommerceML\Model\Simple $object
+     * @return mixed
+     */
+    public function setRaw1cData($cml, $object)
+    {
+        // TODO: Implement setRaw1cData() method.
     }
 }

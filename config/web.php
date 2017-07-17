@@ -1,6 +1,7 @@
 <?php
 use \app\models\Offer;
 use app\models\Price;
+use carono\exchange1c\helpers\ModuleHelper;
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
@@ -11,10 +12,21 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru',
     'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@vendor/carono/yii2-1c-exchange/files/articles',
+            'imageAllowExtensions' => ['jpg', 'png', 'gif'],
+            'on beforeAction' => function () {
+                $path = ModuleHelper::getModuleNameByClass('carono\exchange1c\ExchangeModule', 'exchange');
+                $redactor = \Yii::$app->getModule('redactor');
+                $redactor->uploadUrl = "/$path/file/article?file=";
+                \Yii::$app->setModule('redactor', $redactor);
+            }
+        ],
         'exchange' => [
             'class' => 'carono\exchange1c\ExchangeModule',
             'productClass' => 'app\models\Product',
-            'documentClass' => '\app\models\Order',
+            'documentClass' => 'app\models\Order',
             'exchangeDocuments' => true,
             'debug' => true,
             'on beforeUpdateProduct' => function ($event) {
@@ -99,7 +111,6 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'carono\exchange1c\UrlRule'],
                 'images/<id>/<name>' => 'site/image',
             ],
         ],

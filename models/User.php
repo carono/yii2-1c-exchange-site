@@ -106,10 +106,10 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface, Partn
 
     public static function getFields1c()
     {
-       return [];
+        return [];
     }
 
-    public function getExportFields1c()
+    public function getExportFields1c($context = null)
     {
         return [
             'Ид' => 'id',
