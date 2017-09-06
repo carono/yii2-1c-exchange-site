@@ -93,17 +93,21 @@ class Product extends BaseProduct implements ProductInterface
     }
 
     /**
-     * Характеристики товара, (offers.xml > ПакетПредложений > Предложения > Предложение > ХарактеристикиТовара > ХарактеристикаТовара)
+     * offers.xml > ПакетПредложений > Предложения > Предложение > ХарактеристикиТовара > ХарактеристикаТовара
+     *
+     * Характеристики товара
      * $name - Наименование
      * $value - Значение
      *
-     * @param Offer $offer
-     * @param Simple $specification
+     * @param \Zenwalker\CommerceML\Model\Offer $offer
+     * @param \Zenwalker\CommerceML\Model\Simple $specification
      * @return void
      */
     public function setSpecification1c($offer, $specification)
     {
-        // TODO: Implement setSpecification1c() method.
+        $offerModel = Offer::createByMl($offer);
+        $specificationModel = Specification::createByMl($specification);
+        $offerModel->addPivot($specificationModel, PvOfferSpecification::className(), ['value' => (string)$specification->Значение]);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 use app\models\Offer;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -47,26 +48,43 @@ use yii\helpers\ArrayHelper;
 
 <?= Html::a('Положить в корзину', $offer->getUrl('put-to-basket'), ['class' => 'btn btn-success']) ?>
 
-    <h2>Значения товара</h2>
+    <h2>Значения продукта</h2>
 <?php
-$price = ArrayHelper::getValue($offer->prices, 0);
+
+echo DetailView::widget([
+    'model' => $offer->product,
+    'attributes' => [
+        'name',
+        'article',
+        'description',
+    ],
+]);
+?>
+
+    <h2>Значения предложения</h2>
+<?php
 
 echo DetailView::widget([
     'model' => $offer,
     'attributes' => [
         'name',
-        'product.article',
-        [
-            'attribute' => 'price',
-            'format' => ['currency', $price->currency],
-            'value' => $price->value
-        ],
         'remnant',
-        'product.description',
     ],
 ]);
 ?>
-    <h2>Реквизиты товара</h2>
+    <h2>Цены предложения</h2>
+<?php
+echo GridView::widget([
+    'dataProvider' => $offer->getPrices()->joinWith(['type'])->search(),
+    'columns' => [
+        'type.name',
+        'value'
+    ]
+]);
+
+?>
+
+    <h2>Реквизиты продукта</h2>
 <?php
 $dataProvider = $offer->product->getPvProductRequisites()->search();
 echo GridView::widget([
@@ -88,3 +106,13 @@ echo GridView::widget([
     ],
 ]);
 ?>
+    <h2>Характеристики предложения</h2>
+<?php
+$dataProvider = $offer->getPvOfferSpecifications()->joinWith(['specification'])->search();
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'specification.name',
+        'value',
+    ],
+]);
