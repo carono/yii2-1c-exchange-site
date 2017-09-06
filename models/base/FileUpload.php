@@ -52,7 +52,7 @@ protected $_relationClasses = [];
      */
     public static function tableName()
     {
-        return 'file_upload';
+        return '{{%file_upload}}';
     }
 
     /**

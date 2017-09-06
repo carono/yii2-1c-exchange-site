@@ -15,6 +15,7 @@ use Zenwalker\CommerceML\Model\Group as MlGroup;
 use Zenwalker\CommerceML\Model\Offer as MlOffer;
 use Zenwalker\CommerceML\Model\Price as MlPrice;
 use Zenwalker\CommerceML\Model\Property as MlProperty;
+use Zenwalker\CommerceML\Model\PropertyCollection;
 use Zenwalker\CommerceML\Model\Simple;
 
 /**
@@ -140,9 +141,8 @@ class Product extends BaseProduct implements ProductInterface
             'remnant' => (string)$offer->Количество
         ]);
         $priceType = PriceType::createByMl($price->getType());
-        $priceModel = Price::createByMl($price);
-        $priceModel->updateAttributes(['type_id' => $priceType->id]);
-        $this->addPivot($priceModel, PvOfferPrice::className());
+        $priceModel = Price::createByMl($price, $offerModel, $priceType);
+        $offerModel->addPivot($priceModel, PvOfferPrice::className());
     }
 
     /**
@@ -206,6 +206,30 @@ class Product extends BaseProduct implements ProductInterface
             return $this->images[0]->getImageUrl();
         } else {
             return '/images/product.png';
+        }
+    }
+
+    /**
+     * @param PropertyCollection $properties
+     * @return mixed
+     */
+    public static function createProperties1c($properties)
+    {
+        /**
+         * @var \Zenwalker\CommerceML\Model\Property $property
+         */
+        foreach ($properties as $property) {
+            $propertyModel = Property::createByMl($property);
+            foreach ($property->getAvailableValues() as $value) {
+                if (!$propertyValue = PropertyValue::findOne(['accounting_id' => $value->id])) {
+                    $propertyValue = new PropertyValue();
+                    $ids[] = $propertyValue->accounting_id = (string)$value->ИдЗначения;
+                    $propertyValue->name = (string)$value->Значение;
+                    $propertyValue->property_id = $propertyModel->id;
+                    $propertyValue->save();
+                    unset($propertyValue);
+                }
+            }
         }
     }
 }

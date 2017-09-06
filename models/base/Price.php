@@ -42,7 +42,7 @@ protected $_relationClasses = ['type_id'=>'app\models\PriceType'];
      */
     public static function tableName()
     {
-        return 'price';
+        return '{{%price}}';
     }
 
     /**

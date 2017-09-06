@@ -38,7 +38,7 @@ protected $_relationClasses = ['product_id'=>'app\models\Product','requisite_id
      */
     public static function tableName()
     {
-        return 'pv_product_requisite';
+        return '{{%pv_product_requisite}}';
     }
 
     /**

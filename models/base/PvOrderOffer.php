@@ -41,7 +41,7 @@ protected $_relationClasses = ['offer_id'=>'app\models\Offer','order_id'=>'app\
      */
     public static function tableName()
     {
-        return 'pv_order_offers';
+        return '{{%pv_order_offers}}';
     }
 
     /**

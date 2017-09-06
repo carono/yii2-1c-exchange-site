@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d584b93a7fce53db6319110fa39a7e15",
+    "content-hash": "eabb868c2b5140c9e4c4c0e1d9edc9b3",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -56,6 +56,52 @@
             ]
         },
         {
+            "name": "bower-asset/inputmask-multi",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andr-04/inputmask-multi.git",
+                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andr-04/inputmask-multi/zipball/2e27d65ece1a87f52488285b7b15199a38e9bb08",
+                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.5",
+                "bower-asset/jquery.inputmask": ">=3.2.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/jquery.inputmask-multi.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Inputmask Multi is a plugin which allows to select a mask of input basing on the beginning of entered data (such as an international phone number)",
+            "keywords": [
+                "ecosystem:jquery",
+                "inputmask",
+                "jquery-plugin",
+                "list",
+                "mask",
+                "multi",
+                "phone",
+                "phonenumber",
+                "selection",
+                "several"
+            ]
+        },
+        {
             "name": "bower-asset/jquery",
             "version": "2.2.4",
             "source": {
@@ -85,6 +131,31 @@
                 "jquery",
                 "library"
             ]
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "1.11.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "jquery-ui.js"
+                ],
+                "bower-asset-ignore": []
+            }
         },
         {
             "name": "bower-asset/jquery.inputmask",
@@ -143,6 +214,45 @@
                 "jquery",
                 "mask",
                 "plugins"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery.maskedinput",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalBush/jquery.maskedinput.git",
+                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalBush/jquery.maskedinput/zipball/f19728180c604c1b0c62d6aa97af262c0c04d71c",
+                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8.3"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./dist/jquery.maskedinput.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "spec",
+                    "lib"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery Masked Input Plugin",
+            "keywords": [
+                "form",
+                "input",
+                "jquery",
+                "mask"
             ]
         },
         {
@@ -240,12 +350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/php-commerceml.git",
-                "reference": "561a554637d931117f18a8dfa519f647aa5abbf3"
+                "reference": "1137c6f945a5c0e58fa200e48c5379ffbf305bd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/561a554637d931117f18a8dfa519f647aa5abbf3",
-                "reference": "561a554637d931117f18a8dfa519f647aa5abbf3",
+                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/1137c6f945a5c0e58fa200e48c5379ffbf305bd4",
+                "reference": "1137c6f945a5c0e58fa200e48c5379ffbf305bd4",
                 "shasum": ""
             },
             "type": "library",
@@ -276,7 +386,7 @@
                 "1c",
                 "commerceml"
             ],
-            "time": "2017-06-29 14:05:09"
+            "time": "2017-09-06 10:16:28"
         },
         {
             "name": "carono/yii2-1c-exchange",
@@ -284,19 +394,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-1c-exchange.git",
-                "reference": "1108161fd4998669c8815bbcad97646aa3460805"
+                "reference": "9d43a30a4d8619a550c24d239676dd01a6a850f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/1108161fd4998669c8815bbcad97646aa3460805",
-                "reference": "1108161fd4998669c8815bbcad97646aa3460805",
+                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/9d43a30a4d8619a550c24d239676dd01a6a850f5",
+                "reference": "9d43a30a4d8619a550c24d239676dd01a6a850f5",
                 "shasum": ""
             },
             "require": {
                 "carono/commerceml": "*",
                 "yiisoft/yii2": "^2.0"
             },
-            "type": "yii2-exchange",
+            "require-dev": {
+                "yiidoc/yii2-redactor": "^2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "carono\\exchange1c\\Bootstrap"
+            },
             "autoload": {
                 "psr-4": {
                     "carono\\exchange1c\\": ""
@@ -310,7 +426,7 @@
                 }
             ],
             "description": "Yii2 module for the exchange of goods and documents from 1C",
-            "time": "2017-06-29 14:08:27"
+            "time": "2017-09-04 15:43:21"
         },
         {
             "name": "carono/yii2-file-upload",
@@ -355,19 +471,21 @@
         },
         {
             "name": "carono/yii2-giix",
-            "version": "0.1.3",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-giix.git",
-                "reference": "a30dd08e9719ff69c8aeec79d12379c2590ebcc1"
+                "reference": "fe9eb22d2cb79515260401aac9428163ac23d21c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-giix/zipball/a30dd08e9719ff69c8aeec79d12379c2590ebcc1",
-                "reference": "a30dd08e9719ff69c8aeec79d12379c2590ebcc1",
+                "url": "https://api.github.com/repos/carono/yii2-giix/zipball/fe9eb22d2cb79515260401aac9428163ac23d21c",
+                "reference": "fe9eb22d2cb79515260401aac9428163ac23d21c",
                 "shasum": ""
             },
             "require": {
+                "carono/yii2-widgets": "@stable",
+                "nette/php-generator": "@stable",
                 "schmunk42/yii2-giiant": "@stable"
             },
             "type": "yii2-extension",
@@ -390,20 +508,20 @@
                 }
             ],
             "description": "Yii2 gii generator based on schmunk42 yii2-giiant",
-            "time": "2017-01-30T06:11:33+00:00"
+            "time": "2017-08-21T15:05:02+00:00"
         },
         {
             "name": "carono/yii2-installer",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-installer.git",
-                "reference": "da6e2f16abd329557d429ef4ade4f879118e2ee3"
+                "reference": "436fd3701b8f83015813a9562f01c38185aeeaf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-installer/zipball/da6e2f16abd329557d429ef4ade4f879118e2ee3",
-                "reference": "da6e2f16abd329557d429ef4ade4f879118e2ee3",
+                "url": "https://api.github.com/repos/carono/yii2-installer/zipball/436fd3701b8f83015813a9562f01c38185aeeaf5",
+                "reference": "436fd3701b8f83015813a9562f01c38185aeeaf5",
                 "shasum": ""
             },
             "require": {
@@ -422,7 +540,95 @@
                     "email": "spamer2000@list.ru"
                 }
             ],
-            "time": "2017-04-19T09:17:45+00:00"
+            "time": "2017-07-03T19:41:35+00:00"
+        },
+        {
+            "name": "carono/yii2-rbac",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/yii2-rbac.git",
+                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/yii2-rbac/zipball/0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
+                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "carono\\yii2rbac\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "carono\\yii2rbac\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carno",
+                    "email": "spamer2000@list.ru"
+                }
+            ],
+            "description": "Yii2 RBAC extension",
+            "time": "2017-06-10T06:53:21+00:00"
+        },
+        {
+            "name": "carono/yii2-widgets",
+            "version": "0.1.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/yii2-widgets.git",
+                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/yii2-widgets/zipball/d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
+                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/inputmask-multi": "@stable",
+                "bower-asset/jquery.maskedinput": "@stable",
+                "carono/yii2-rbac": "@stable",
+                "kartik-v/yii2-widget-datetimepicker": "@stable",
+                "kartik-v/yii2-widget-depdrop": "@stable",
+                "kartik-v/yii2-widget-select2": "@stable",
+                "kartik-v/yii2-widget-typeahead": "@stable",
+                "yiisoft/yii2": "~2.0",
+                "yiisoft/yii2-jui": "@stable"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "carono\\yii2widgets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kasyanov",
+                    "email": "info@carono.ru",
+                    "homepage": "http://carono.ru"
+                }
+            ],
+            "description": "Widgets for yii2",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2017-07-11T08:49:05+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -944,6 +1150,303 @@
             "time": "2017-06-20T11:22:48+00:00"
         },
         {
+            "name": "kartik-v/dependent-dropdown",
+            "version": "v1.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/dependent-dropdown.git",
+                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/dependent-dropdown/zipball/1349e7f5816a65e89bc227098386aac5b2c89363",
+                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\depdrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A multi level dependent dropdown JQuery plugin that allows nested dependencies.",
+            "homepage": "https://github.com/kartik-v/dependent-dropdown",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "jquery",
+                "option",
+                "select"
+            ],
+            "time": "2017-08-01T11:43:55+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-krajee-base",
+            "version": "v1.8.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2-bootstrap": "@dev"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\base\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+            "keywords": [
+                "base",
+                "extension",
+                "foundation",
+                "krajee",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-02-22T05:58:53+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-datetimepicker",
+            "version": "v1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
+                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
+                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\datetime\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
+            "keywords": [
+                "datetime",
+                "extension",
+                "form",
+                "jquery",
+                "picker",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-06-08T05:53:28+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-depdrop",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-depdrop.git",
+                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-depdrop/zipball/6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
+                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/dependent-dropdown": "~1.4",
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\depdrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Widget that enables setting up dependent dropdowns with nested dependencies (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-depdrop",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-01-10T17:30:48+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-select2",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/a129c6663078fe0ad14cde2a5d0afd071c7608e9",
+                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\select2\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-08-07T18:12:36+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-typeahead",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-typeahead.git",
+                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-typeahead/zipball/e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
+                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\typeahead\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Twitter Typeahead plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-typeahead",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "typeahead",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-06-28T18:05:41+00:00"
+        },
+        {
             "name": "mikehaertl/php-shellcommand",
             "version": "1.2.4",
             "source": {
@@ -978,6 +1481,141 @@
                 "shell"
             ],
             "time": "2017-02-09T18:28:47+00:00"
+        },
+        {
+            "name": "nette/php-generator",
+            "version": "v2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/php-generator.git",
+                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/78c898808d3a1018cc81f9d7108bc645129776c8",
+                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^2.4.2 || ~3.0.0",
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "^2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "Nette PHP Generator",
+            "homepage": "https://nette.org",
+            "time": "2017-07-14T07:06:27+00:00"
+        },
+        {
+            "name": "nette/utils",
+            "version": "v2.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "f1584033b5af945b470533b466b81a789d532034"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/f1584033b5af945b470533b466b81a789d532034",
+                "reference": "f1584033b5af945b470533b466b81a789d532034",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "~2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize() and toAscii()",
+                "ext-intl": "for script transliteration in Strings::webalize() and toAscii()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "time": "2017-08-20T17:32:29+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2234,6 +2872,56 @@
             "time": "2016-03-18T14:09:46+00:00"
         },
         {
+            "name": "yiisoft/yii2-jui",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-jui.git",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-ui": "1.11.*@stable",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\jui\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The Jquery UI extension for the Yii framework",
+            "keywords": [
+                "jQuery UI",
+                "yii2"
+            ],
+            "time": "2016-07-22T22:26:59+00:00"
+        },
+        {
             "name": "yiisoft/yii2-swiftmailer",
             "version": "2.0.7",
             "source": {
@@ -2343,6 +3031,38 @@
                 "parser"
             ],
             "time": "2016-10-30T11:50:56+00:00"
+        },
+        {
+            "name": "carono/xml-doc",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/xml-doc.git",
+                "reference": "401ac8a40347232267d91c678903c2ea63f4313b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/xml-doc/zipball/401ac8a40347232267d91c678903c2ea63f4313b",
+                "reference": "401ac8a40347232267d91c678903c2ea63f4313b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carono\\xmldoc\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carono",
+                    "email": "info@carono.ru"
+                }
+            ],
+            "time": "2017-07-25T05:17:16+00:00"
         },
         {
             "name": "codeception/base",

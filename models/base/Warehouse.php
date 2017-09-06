@@ -38,7 +38,7 @@ protected $_relationClasses = [];
      */
     public static function tableName()
     {
-        return 'warehouse';
+        return '{{%warehouse}}';
     }
 
     /**

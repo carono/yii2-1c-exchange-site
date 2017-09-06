@@ -17,6 +17,8 @@ use Yii;
  * @property \app\models\Product $product
  * @property \app\models\PvOfferPrice[] $pvOfferPrices
  * @property \app\models\Price[] $prices
+ * @property \app\models\PvOfferSpecification[] $pvOfferSpecifications
+ * @property \app\models\Specification[] $specifications
  * @property \app\models\PvOfferWarehouse[] $pvOfferWarehouses
  * @property \app\models\Warehouse[] $warehouses
  * @property \app\models\PvOrderOffer[] $pvOrderOffers
@@ -46,7 +48,7 @@ protected $_relationClasses = ['product_id'=>'app\models\Product'];
      */
     public static function tableName()
     {
-        return 'offer';
+        return '{{%offer}}';
     }
 
     /**
@@ -101,6 +103,22 @@ protected $_relationClasses = ['product_id'=>'app\models\Product'];
     public function getPrices()
     {
         return $this->hasMany(\app\models\Price::className(), ['id' => 'price_id'])->viaTable('pv_offer_prices', ['offer_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\PvOfferSpecificationQuery
+     */
+    public function getPvOfferSpecifications()
+    {
+        return $this->hasMany(\app\models\PvOfferSpecification::className(), ['offer_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\SpecificationQuery
+     */
+    public function getSpecifications()
+    {
+        return $this->hasMany(\app\models\Specification::className(), ['id' => 'specification_id'])->viaTable('pv_offer_specifications', ['offer_id' => 'id']);
     }
 
     /**

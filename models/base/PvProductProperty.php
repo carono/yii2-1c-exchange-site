@@ -39,7 +39,7 @@ protected $_relationClasses = ['product_id'=>'app\models\Product','property_id'
      */
     public static function tableName()
     {
-        return 'pv_product_properties';
+        return '{{%pv_product_properties}}';
     }
 
     /**

@@ -5,17 +5,16 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the base-model class for table "property".
+ * This is the base-model class for table "specification".
  *
  * @property integer $id
  * @property string $name
  * @property string $accounting_id
  *
- * @property \app\models\PropertyValue[] $propertyValues
- * @property \app\models\PvProductProperty[] $pvProductProperties
- * @property \app\models\Product[] $products
+ * @property \app\models\PvOfferSpecification[] $pvOfferSpecifications
+ * @property \app\models\Offer[] $offers
  */
-class Property extends \yii\db\ActiveRecord
+class Specification extends \yii\db\ActiveRecord
 {
 
 protected $_relationClasses = [];
@@ -23,12 +22,12 @@ protected $_relationClasses = [];
 
     /**
     * @inheritdoc
-    * @return \app\models\Property    */
+    * @return \app\models\Specification    */
     public static function findOne($condition, $raise = false)
     {
         $model = parent::findOne($condition);
         if (!$model && $raise){
-            throw new \yii\web\HttpException(404,'Model app\models\Property not found');
+            throw new \yii\web\HttpException(404,'Model app\models\Specification not found');
         }else{
             return $model;
         }
@@ -39,7 +38,7 @@ protected $_relationClasses = [];
      */
     public static function tableName()
     {
-        return '{{%property}}';
+        return '{{%specification}}';
     }
 
     /**
@@ -66,27 +65,19 @@ protected $_relationClasses = [];
     }
 
     /**
-     * @return \app\models\query\PropertyValueQuery
+     * @return \app\models\query\PvOfferSpecificationQuery
      */
-    public function getPropertyValues()
+    public function getPvOfferSpecifications()
     {
-        return $this->hasMany(\app\models\PropertyValue::className(), ['property_id' => 'id']);
+        return $this->hasMany(\app\models\PvOfferSpecification::className(), ['specification_id' => 'id']);
     }
 
     /**
-     * @return \app\models\query\PvProductPropertyQuery
+     * @return \app\models\query\OfferQuery
      */
-    public function getPvProductProperties()
+    public function getOffers()
     {
-        return $this->hasMany(\app\models\PvProductProperty::className(), ['property_id' => 'id']);
-    }
-
-    /**
-     * @return \app\models\query\ProductQuery
-     */
-    public function getProducts()
-    {
-        return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('pv_product_properties', ['property_id' => 'id']);
+        return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_offer_specifications', ['specification_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {
@@ -96,11 +87,11 @@ protected $_relationClasses = [];
     
     /**
      * @inheritdoc
-     * @return \app\models\query\PropertyQuery the active query used by this AR class.
+     * @return \app\models\query\SpecificationQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\models\query\PropertyQuery(get_called_class());
+        return new \app\models\query\SpecificationQuery(get_called_class());
     }
 
 

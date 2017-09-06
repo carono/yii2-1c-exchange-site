@@ -40,6 +40,8 @@ class Group extends BaseGroup implements GroupInterface
         return $model;
     }
 
+
+
     public function behaviors()
     {
         return [
@@ -74,5 +76,19 @@ class Group extends BaseGroup implements GroupInterface
     public function getId1c()
     {
         return $this->accounting_id;
+    }
+
+    /**
+     * @param \Zenwalker\CommerceML\Model\Group[] $groups
+     * @return void
+     */
+    public static function createTree1c($groups)
+    {
+        foreach ($groups as $group) {
+            self::createByML($group);
+            if ($children = $group->getChildren()) {
+                self::createTree1c($children);
+            }
+        }
     }
 }

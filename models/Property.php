@@ -19,20 +19,6 @@ class Property extends BaseProperty
             $model->name = $property->name;
             $model->save();
         }
-        $ids = [];
-        foreach ($property->getAvailableValues() as $value) {
-            if (!$propertyValue = PropertyValue::findOne(['accounting_id' => $value->id])) {
-                $propertyValue = new PropertyValue();
-                $ids[] = $propertyValue->accounting_id = (string)$value->ИдЗначения;
-                $propertyValue->name = (string)$value->Значение;
-                $propertyValue->property_id = $model->id;
-                $propertyValue->save();
-                unset($propertyValue);
-            }
-        }
-        if ($ids) {
-            PropertyValue::deleteAll(['and', ['property_id' => $model->id], ['not', ['accounting_id' => $ids]]]);
-        }
         return $model;
     }
 }

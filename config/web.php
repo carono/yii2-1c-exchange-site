@@ -1,4 +1,5 @@
 <?php
+
 use \app\models\Offer;
 use app\models\Price;
 use carono\exchange1c\helpers\ModuleHelper;
@@ -27,43 +28,9 @@ $config = [
             'class' => 'carono\exchange1c\ExchangeModule',
             'productClass' => 'app\models\Product',
             'documentClass' => 'app\models\Order',
+            'groupClass' => 'app\models\Group',
             'exchangeDocuments' => true,
-            'debug' => true,
-            'on beforeUpdateProduct' => function ($event) {
-                /**
-                 * @var \app\models\Product $model
-                 */
-                /*
-                $model = $event->model;
-                foreach ($model->images as $image) {
-                    $image->deleteFile();
-                    $image->delete();
-                }
-                unset($image);
-                unset($event);
-                */
-            },
-            'on beforeUpdateOffer' => function ($event) {
-                /**
-                 * @var \carono\exchange1c\ExchangeEvent $event
-                 * @var Offer $offer
-                 */
-                /*
-                $model = $event->model;
-                $ml = $event->ml;
-                foreach (Offer::find()->andWhere(['accounting_id' => $ml->id])->batch() as $offers) {
-                    foreach ($offers as $offer) {
-                        if ($offer->price && $offer->price->type) {
-                            $offer->price->type->delete();
-                        } elseif ($offer->price) {
-                            $offer->price->delete();
-                        } else {
-                            $offer->delete();
-                        }
-                    }
-                }
-                */
-            },
+            'debug' => true
         ],
     ],
     'components' => [

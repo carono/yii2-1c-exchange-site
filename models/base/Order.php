@@ -42,7 +42,7 @@ protected $_relationClasses = ['status_id'=>'app\models\OrderStatus'];
      */
     public static function tableName()
     {
-        return 'order';
+        return '{{%order}}';
     }
 
     /**

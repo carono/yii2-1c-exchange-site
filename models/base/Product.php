@@ -50,7 +50,7 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
      */
     public static function tableName()
     {
-        return 'product';
+        return '{{%product}}';
     }
 
     /**

@@ -37,7 +37,7 @@ protected $_relationClasses = ['image_id'=>'app\models\FileUpload','product_id'
      */
     public static function tableName()
     {
-        return 'pv_product_images';
+        return '{{%pv_product_images}}';
     }
 
     /**

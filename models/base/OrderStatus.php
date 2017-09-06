@@ -36,7 +36,7 @@ protected $_relationClasses = [];
      */
     public static function tableName()
     {
-        return 'order_status';
+        return '{{%order_status}}';
     }
 
     /**

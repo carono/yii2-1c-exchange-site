@@ -63,6 +63,11 @@ class m170626_103131_init extends \carono\yii2installer\Migration
                 'rate' => self::float()->comment('Коэффициент'),
                 'type_id' => self::foreignKey('price_type'),
             ],
+            'specification' => [
+                'id' => self::primaryKey(),
+                'name' => self::string(),
+                'accounting_id' => self::string()->unique()
+            ],
             'offer' => [
                 'id' => self::primaryKey(),
                 'name' => self::string(),
@@ -71,6 +76,7 @@ class m170626_103131_init extends \carono\yii2installer\Migration
                 'remnant' => self::decimal(10, 3)->comment('Остаток (количество)'),
                 'warehouses' => self::pivot('warehouse'),
                 'prices' => self::pivot('price'),
+                'specifications' => self::pivot('specification'),
                 'is_active' => self::boolean()->notNull()->defaultValue(true)
             ],
             'order_status' => [
@@ -92,6 +98,9 @@ class m170626_103131_init extends \carono\yii2installer\Migration
     public function newColumns()
     {
         return [
+            'pv_offer_specifications' => [
+                'value' => self::string()
+            ],
             'pv_product_requisite' => [
                 'value' => self::string(1024),
             ],

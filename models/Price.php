@@ -13,15 +13,20 @@ class Price extends BasePrice
 {
     /**
      * @param MlPrice $price
+     * @param Offer $offer
+     * @param PriceType $type
      * @return Price
      */
-    public static function createByMl($price)
+    public static function createByMl($price, $offer, $type)
     {
-        $priceModel = new self();
+        if (!$priceModel = $offer->getPrices()->andWhere(['type_id' => $type->id])->one()) {
+            $priceModel = new self();
+        }
         $priceModel->value = $price->cost;
         $priceModel->performance = $price->performance;
         $priceModel->currency = $price->currency;
         $priceModel->rate = $price->rate;
+        $priceModel->type_id = $type->id;
         $priceModel->save();
         return $priceModel;
     }

@@ -43,7 +43,7 @@ protected $_relationClasses = ['parent_id'=>'app\models\Group'];
      */
     public static function tableName()
     {
-        return 'group';
+        return '{{%group}}';
     }
 
     /**

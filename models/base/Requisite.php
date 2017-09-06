@@ -37,7 +37,7 @@ protected $_relationClasses = [];
      */
     public static function tableName()
     {
-        return 'requisite';
+        return '{{%requisite}}';
     }
 
     /**

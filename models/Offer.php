@@ -6,6 +6,7 @@ use app\components\Basket;
 use carono\exchange1c\interfaces\GroupInterface;
 use carono\exchange1c\interfaces\OfferInterface;
 use carono\exchange1c\interfaces\ProductInterface;
+use carono\yii2installer\traits\PivotTrait;
 use Yii;
 use \app\models\base\Offer as BaseOffer;
 use yii\helpers\ArrayHelper;
@@ -26,6 +27,8 @@ use Zenwalker\CommerceML\Model\Simple;
  */
 class Offer extends BaseOffer implements OfferInterface
 {
+    use PivotTrait;
+
     public function getUrl($action, $asString = false)
     {
         $url = [];
