@@ -47,65 +47,79 @@ use yii\helpers\ArrayHelper;
     </div>
 
 <?= Html::a('Положить в корзину', $offer->getUrl('put-to-basket'), ['class' => 'btn btn-success']) ?>
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Значения продукта</h2>
+            <?php
 
-    <h2>Значения продукта</h2>
-<?php
+            echo DetailView::widget([
+                'model' => $offer->product,
+                'attributes' => [
+                    'name',
+                    'article',
+                    'description',
+                ],
+            ]);
+            ?>
+        </div>
 
-echo DetailView::widget([
-    'model' => $offer->product,
-    'attributes' => [
-        'name',
-        'article',
-        'description',
-    ],
-]);
-?>
+        <div class="col-lg-6">
+            <h2>Значения предложения</h2>
+            <?php
 
-    <h2>Значения предложения</h2>
-<?php
-
-echo DetailView::widget([
-    'model' => $offer,
-    'attributes' => [
-        'name',
-        'remnant',
-    ],
-]);
-?>
+            echo DetailView::widget([
+                'model' => $offer,
+                'attributes' => [
+                    'name',
+                    'remnant',
+                ],
+            ]);
+            ?>
+        </div>
+    </div>
     <h2>Цены предложения</h2>
 <?php
 echo GridView::widget([
     'dataProvider' => $offer->getPrices()->joinWith(['type'])->search(),
     'columns' => [
         'type.name',
+        'performance',
+        'currency',
+        'rate',
         'value'
     ]
 ]);
 
 ?>
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Реквизиты продукта</h2>
+            <?php
+            $dataProvider = $offer->product->getPvProductRequisites()->search();
+            echo GridView::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => [
+                    'requisite.name',
+                    'value',
+                ],
+            ]);
+            ?>
+        </div>
 
-    <h2>Реквизиты продукта</h2>
-<?php
-$dataProvider = $offer->product->getPvProductRequisites()->search();
-echo GridView::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => [
-        'requisite.name',
-        'value',
-    ],
-]);
-?>
-    <h2>Свойства товара</h2>
-<?php
-$dataProvider = $offer->product->getPvProductProperties()->joinWith(['propertyValue.property'])->search();
-echo GridView::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => [
-        'property.name',
-        'propertyValue.name',
-    ],
-]);
-?>
+        <div class="col-lg-6">
+            <h2>Свойства продукта</h2>
+            <?php
+            $dataProvider = $offer->product->getPvProductProperties()->joinWith(['propertyValue.property'])->search();
+            echo GridView::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => [
+                    'property.name',
+                    'propertyValue.name',
+                ],
+            ]);
+            ?>
+        </div>
+    </div>
     <h2>Характеристики предложения</h2>
 <?php
 $dataProvider = $offer->getPvOfferSpecifications()->joinWith(['specification'])->search();
