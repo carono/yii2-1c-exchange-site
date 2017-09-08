@@ -161,32 +161,12 @@ class Product extends BaseProduct implements ProductInterface
         }
     }
 
-    public function getRequisite1c($name)
-    {
-        // TODO: Implement getRequisite1c() method.
-    }
-
-    public function getRequisites1c()
-    {
-        // TODO: Implement getRequisites1c() method.
-    }
-
-    public function getCategory1c($id)
-    {
-        // TODO: Implement getCategory1c() method.
-    }
-
-    public function getProperty1c($id)
-    {
-        // TODO: Implement getProperty1c() method.
-    }
-
     /**
      * @return GroupInterface
      */
     public function getGroup1c()
     {
-        // TODO: Implement getGroup1c() method.
+        $this->group;
     }
 
     public function getExportFields1c($context = null)
