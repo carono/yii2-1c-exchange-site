@@ -45,9 +45,8 @@ class Offer extends BaseOffer implements OfferInterface
             $offerModel = new self;
             $offerModel->name = $offer->name;
             $offerModel->accounting_id = $offer->id;
-            $offerModel->remnant = $offer->Количество;
-            $offerModel->save();
         }
+        $offerModel->remnant = $offer->Количество;
         return $offerModel;
     }
 
@@ -133,5 +132,51 @@ class Offer extends BaseOffer implements OfferInterface
                 ]
             ]
         ];
+    }
+
+
+    /**
+     * offers.xml > ПакетПредложений > Предложения > Предложение > Цены
+     *
+     * Цена товара,
+     * К $price можно обратиться как к массиву, чтобы получить список цен (Цены > Цена)
+     * $price->type - тип цены (offers.xml > ПакетПредложений > ТипыЦен > ТипЦены)
+     *
+     * @param \Zenwalker\CommerceML\Model\Price $price
+     * @return void
+     */
+    public function setPrice1c($price)
+    {
+        $priceType = PriceType::createByMl($price->getType());
+        $priceModel = Price::createByMl($price, $this, $priceType);
+        $this->addPivot($priceModel, PvOfferPrice::className());
+    }
+
+    /**
+     * @param $types
+     * @return mixed
+     */
+    public static function createPriceTypes1c($types)
+    {
+        foreach ($types as $type) {
+            PriceType::createByMl($type);
+        }
+    }
+
+
+    /**
+     * offers.xml > ПакетПредложений > Предложения > Предложение > ХарактеристикиТовара > ХарактеристикаТовара
+     *
+     * Характеристики товара
+     * $name - Наименование
+     * $value - Значение
+     *
+     * @param \Zenwalker\CommerceML\Model\Simple $specification
+     * @return void
+     */
+    public function setSpecification1c($specification)
+    {
+        $specificationModel = Specification::createByMl($specification);
+        $this->addPivot($specificationModel, PvOfferSpecification::className(), ['value' => (string)$specification->Значение]);
     }
 }

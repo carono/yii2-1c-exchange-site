@@ -29,6 +29,7 @@ $config = [
             'productClass' => 'app\models\Product',
             'documentClass' => 'app\models\Order',
             'groupClass' => 'app\models\Group',
+            'offerClass' => 'app\models\Offer',
             'exchangeDocuments' => true,
             'debug' => true
         ],

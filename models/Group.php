@@ -14,7 +14,7 @@ class Group extends BaseGroup implements GroupInterface
 {
     /**
      * Создаём группу по модели группы CommerceML
-     * проверяем все дерево родителей группы, если родителя нет в базе- создаём
+     * проверяем все дерево родителей группы, если родителя нет в базе - создаём
      *
      * @param \Zenwalker\CommerceML\Model\Group $group
      * @return Group|array|null
@@ -39,8 +39,6 @@ class Group extends BaseGroup implements GroupInterface
         $model->save();
         return $model;
     }
-
-
 
     public function behaviors()
     {

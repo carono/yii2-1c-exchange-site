@@ -20,8 +20,10 @@ class PriceType extends BasePriceType
         if (!$priceType = self::findOne(['accounting_id' => $type->id])) {
             $priceType = new self;
             $priceType->accounting_id = $type->id;
-            $priceType->name = $type->name;
-            $priceType->currency = (string)$type->Валюта;
+        }
+        $priceType->name = $type->name;
+        $priceType->currency = (string)$type->Валюта;
+        if ($priceType->getDirtyAttributes()) {
             $priceType->save();
         }
         return $priceType;

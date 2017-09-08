@@ -3,6 +3,7 @@
 namespace app\models;
 
 use carono\exchange1c\interfaces\GroupInterface;
+use carono\exchange1c\interfaces\OfferInterface;
 use carono\exchange1c\interfaces\ProductInterface;
 use carono\yii2installer\traits\PivotTrait;
 use Yii;
@@ -89,25 +90,8 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setGroup1c($group)
     {
-        $this->updateAttributes(['group_id' => Group::createByML($group)->id]);
-    }
-
-    /**
-     * offers.xml > ПакетПредложений > Предложения > Предложение > ХарактеристикиТовара > ХарактеристикаТовара
-     *
-     * Характеристики товара
-     * $name - Наименование
-     * $value - Значение
-     *
-     * @param \Zenwalker\CommerceML\Model\Offer $offer
-     * @param \Zenwalker\CommerceML\Model\Simple $specification
-     * @return void
-     */
-    public function setSpecification1c($offer, $specification)
-    {
-        $offerModel = Offer::createByMl($offer);
-        $specificationModel = Specification::createByMl($specification);
-        $offerModel->addPivot($specificationModel, PvOfferSpecification::className(), ['value' => (string)$specification->Значение]);
+        $groupModel = Group::findOne(['accounting_id' => $group->id]);
+        $this->updateAttributes(['group_id' => $groupModel->id]);
     }
 
     /**
@@ -129,27 +113,6 @@ class Product extends BaseProduct implements ProductInterface
     }
 
     /**
-     * Цена товара, (offers.xml > ПакетПредложений > Предложения > Предложение > Цены)
-     * К $price можно обратиться как к массиву, чтобы получить список цен (Цены > Цена)
-     * $price->type - тип цены (offers.xml > ПакетПредложений > ТипыЦен > ТипЦены)
-     *
-     * @param MlOffer $offer
-     * @param MlPrice $price
-     * @return void
-     */
-    public function setPrice1c($offer, $price)
-    {
-        $offerModel = Offer::createByMl($offer);
-        $offerModel->updateAttributes([
-            'product_id' => $this->id,
-            'remnant' => (string)$offer->Количество
-        ]);
-        $priceType = PriceType::createByMl($price->getType());
-        $priceModel = Price::createByMl($price, $offerModel, $priceType);
-        $offerModel->addPivot($priceModel, PvOfferPrice::className());
-    }
-
-    /**
      * @param string $path
      * @param string $caption
      * @return mixed
@@ -166,12 +129,7 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function getGroup1c()
     {
-        $this->group;
-    }
-
-    public function getExportFields1c($context = null)
-    {
-
+        return $this->group;
     }
 
     public function behaviors()
@@ -215,5 +173,19 @@ class Product extends BaseProduct implements ProductInterface
                 }
             }
         }
+    }
+
+    /**
+     * @param \Zenwalker\CommerceML\Model\Offer $offer
+     * @return OfferInterface
+     */
+    public function getOffer1c($offer)
+    {
+        $offerModel = Offer::createByMl($offer);
+        $offerModel->product_id = $this->id;
+        if ($offerModel->getDirtyAttributes()) {
+            $offerModel->save();
+        }
+        return $offerModel;
     }
 }
