@@ -86,7 +86,12 @@ echo GridView::widget([
         'performance',
         'currency',
         'rate',
-        'value'
+        [
+            'attribute' => 'value',
+            'value' => function ($price) {
+                return Yii::$app->formatter->asCurrency($price->value, $price->currency);
+            }
+        ]
     ]
 ]);
 
