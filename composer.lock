@@ -350,12 +350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/php-commerceml.git",
-                "reference": "1137c6f945a5c0e58fa200e48c5379ffbf305bd4"
+                "reference": "fc1c6ccf45b09e0715d8dece32f86180bf842d7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/1137c6f945a5c0e58fa200e48c5379ffbf305bd4",
-                "reference": "1137c6f945a5c0e58fa200e48c5379ffbf305bd4",
+                "url": "https://api.github.com/repos/carono/php-commerceml/zipball/fc1c6ccf45b09e0715d8dece32f86180bf842d7b",
+                "reference": "fc1c6ccf45b09e0715d8dece32f86180bf842d7b",
                 "shasum": ""
             },
             "type": "library",
@@ -386,7 +386,7 @@
                 "1c",
                 "commerceml"
             ],
-            "time": "2017-09-06 10:16:28"
+            "time": "2017-09-08 07:41:20"
         },
         {
             "name": "carono/yii2-1c-exchange",
