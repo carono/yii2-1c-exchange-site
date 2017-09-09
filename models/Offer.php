@@ -60,7 +60,6 @@ class Offer extends BaseOffer implements OfferInterface
         return $this->count_in_basket * $this->getMainPrice()->value;
     }
 
-
     public function getMainPrice()
     {
         return $this->prices[0];
@@ -78,25 +77,6 @@ class Offer extends BaseOffer implements OfferInterface
     public function setRaw1cData($cml, $product)
     {
         // TODO: Implement setRaw1cData() method.
-    }
-
-    /**
-     * Ассоциативный массив, где
-     * Ключ - имя xml тега (import.xml > Каталог > Товары > Товар)
-     * Значение - атрибут в модели
-     * Например:
-     * [
-     *      'id'           => 'accounting_id',
-     *      'Наименование' => 'title',
-     *      'Количество'   => 'remnant',
-     *      'Штрихкод'     => 'barcode'
-     * ]
-     *
-     * @return array
-     */
-    public static function getFields1c()
-    {
-        // TODO: Implement getFields1c() method.
     }
 
     /**
@@ -133,7 +113,6 @@ class Offer extends BaseOffer implements OfferInterface
             ]
         ];
     }
-
 
     /**
      * offers.xml > ПакетПредложений > Предложения > Предложение > Цены

@@ -6,18 +6,13 @@ use carono\exchange1c\interfaces\GroupInterface;
 use carono\exchange1c\interfaces\OfferInterface;
 use carono\exchange1c\interfaces\ProductInterface;
 use carono\yii2installer\traits\PivotTrait;
-use Yii;
 use \app\models\base\Product as BaseProduct;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
-use yii\helpers\ArrayHelper;
 use Zenwalker\CommerceML\CommerceML;
 use Zenwalker\CommerceML\Model\Group as MlGroup;
-use Zenwalker\CommerceML\Model\Offer as MlOffer;
-use Zenwalker\CommerceML\Model\Price as MlPrice;
 use Zenwalker\CommerceML\Model\Property as MlProperty;
 use Zenwalker\CommerceML\Model\PropertyCollection;
-use Zenwalker\CommerceML\Model\Simple;
 
 /**
  * This is the model class for table "product".
@@ -57,7 +52,7 @@ class Product extends BaseProduct implements ProductInterface
     public static function getFields1c()
     {
         return [
-            'id' => 'accounting_id',
+            'Ид' => 'accounting_id',
             'Наименование' => 'name',
             'Описание' => 'description',
             'Артикул' => 'article',
@@ -80,8 +75,7 @@ class Product extends BaseProduct implements ProductInterface
             $requisite->name = $name;
             $requisite->save();
         };
-        $pv = $this->addPivot($requisite, PvProductRequisite::className());
-        $pv->updateAttributes(['value' => $value]);
+        $this->addPivot($requisite, PvProductRequisite::className(), ['value' => $value]);
     }
 
     /**
@@ -90,8 +84,8 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setGroup1c($group)
     {
-        $groupModel = Group::findOne(['accounting_id' => $group->id]);
-        $this->updateAttributes(['group_id' => $groupModel->id]);
+        $id = Group::find()->select(['id'])->andWhere(['accounting_id' => $group->id])->scalar();
+        $this->updateAttributes(['group_id' => $id]);
     }
 
     /**
