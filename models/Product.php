@@ -41,7 +41,6 @@ class Product extends BaseProduct implements ProductInterface
      * Значение - атрибут в модели
      * Например:
      * [
-     *      'id'           => 'accounting_id',
      *      'Наименование' => 'title',
      *      'Количество'   => 'remnant',
      *      'Штрихкод'     => 'barcode'
@@ -52,7 +51,6 @@ class Product extends BaseProduct implements ProductInterface
     public static function getFields1c()
     {
         return [
-            'Ид' => 'accounting_id',
             'Наименование' => 'name',
             'Описание' => 'description',
             'Артикул' => 'article',
@@ -181,5 +179,15 @@ class Product extends BaseProduct implements ProductInterface
             $offerModel->save();
         }
         return $offerModel;
+    }
+
+    /**
+     * Возвращаем имя поля в базе данных, в котором хранится ID из 1с
+     *
+     * @return string
+     */
+    public static function getIdFieldName1c()
+    {
+        return 'accounting_id';
     }
 }

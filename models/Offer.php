@@ -50,6 +50,14 @@ class Offer extends BaseOffer implements OfferInterface
         return $offerModel;
     }
 
+    public static function getFields1c()
+    {
+        return [
+            'Наименование' => 'name',
+            'Описание' => 'description',
+        ];
+    }
+
     public function getCount_in_basket()
     {
         return ArrayHelper::getValue(Basket::show(), $this->id, 0);
@@ -157,5 +165,15 @@ class Offer extends BaseOffer implements OfferInterface
     {
         $specificationModel = Specification::createByMl($specification);
         $this->addPivot($specificationModel, PvOfferSpecification::className(), ['value' => (string)$specification->Значение]);
+    }
+
+    /**
+     * Возвращаем имя поля в базе данных, в котором хранится ID из 1с
+     *
+     * @return string
+     */
+    public static function getIdFieldName1c()
+    {
+        return 'accounting_id';
     }
 }

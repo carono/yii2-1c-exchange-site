@@ -69,14 +69,6 @@ class Group extends BaseGroup implements GroupInterface
     }
 
     /**
-     * @return string
-     */
-    public function getId1c()
-    {
-        return $this->accounting_id;
-    }
-
-    /**
      * @param \Zenwalker\CommerceML\Model\Group[] $groups
      * @return void
      */
@@ -88,5 +80,15 @@ class Group extends BaseGroup implements GroupInterface
                 self::createTree1c($children);
             }
         }
+    }
+
+    /**
+     * Возвращаем имя поля в базе данных, в котором хранится ID из 1с
+     *
+     * @return string
+     */
+    public static function getIdFieldName1c()
+    {
+        return 'accounting_id';
     }
 }
