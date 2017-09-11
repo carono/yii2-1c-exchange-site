@@ -6,6 +6,13 @@ class m170626_103131_init extends \carono\yii2installer\Migration
     public function newTables()
     {
         return [
+            'catalog' => [
+                'id' => self::primaryKey(),
+                'name' => self::string(),
+                'accounting_id' => self::string()->unique(),
+                'created_at' => self::dateTime(),
+                'updated_at' => self::dateTime(),
+            ],
             'group' => [
                 'id' => self::primaryKey(),
                 'name' => self::string()->comment('Наименование группы'),
@@ -36,12 +43,13 @@ class m170626_103131_init extends \carono\yii2installer\Migration
                 'description' => self::string()->comment('Описание товара'),
                 'accounting_id' => self::string()->unique(),
                 'group_id' => self::foreignKey('group'),
-                'created_at' => self::dateTime(),
-                'updated_at' => self::dateTime(),
+                'catalog_id' => self::foreignKey('catalog'),
                 'is_active' => self::boolean()->notNull()->defaultValue(true),
                 'images' => self::pivot('file_upload', 'image_id'),
                 'requisite' => self::pivot('requisite'),
                 'properties' => self::pivot('property'),
+                'created_at' => self::dateTime(),
+                'updated_at' => self::dateTime(),
             ],
             'price_type' => [
                 'id' => self::primaryKey(),

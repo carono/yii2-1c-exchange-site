@@ -13,11 +13,13 @@ use Yii;
  * @property string $description
  * @property string $accounting_id
  * @property integer $group_id
+ * @property integer $catalog_id
  * @property boolean $is_active
  * @property string $created_at
  * @property string $updated_at
  *
  * @property \app\models\Offer[] $offers
+ * @property \app\models\Catalog $catalog
  * @property \app\models\Group $group
  * @property \app\models\PvProductImage[] $pvProductImages
  * @property \app\models\FileUpload[] $images
@@ -29,7 +31,7 @@ use Yii;
 class Product extends \yii\db\ActiveRecord
 {
 
-protected $_relationClasses = ['group_id'=>'app\models\Group'];
+protected $_relationClasses = ['catalog_id'=>'app\models\Catalog','group_id'=>'app\models\Group'];
 
 
     /**
@@ -59,10 +61,11 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
     public function rules()
     {
         return [
-            [['group_id'], 'integer'],
+            [['group_id', 'catalog_id'], 'integer'],
             [['is_active'], 'boolean'],
             [['name', 'article', 'description', 'accounting_id'], 'string', 'max' => 255],
             [['accounting_id'], 'unique'],
+            [['catalog_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Catalog::className(), 'targetAttribute' => ['catalog_id' => 'id']],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Group::className(), 'targetAttribute' => ['group_id' => 'id']]
         ];
     }
@@ -79,9 +82,10 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
             'description' => Yii::t('models', 'Description'),
             'accounting_id' => Yii::t('models', 'Accounting ID'),
             'group_id' => Yii::t('models', 'Group ID'),
+            'catalog_id' => Yii::t('models', 'Catalog ID'),
+            'is_active' => Yii::t('models', 'Is Active'),
             'created_at' => Yii::t('models', 'Created At'),
             'updated_at' => Yii::t('models', 'Updated At'),
-            'is_active' => Yii::t('models', 'Is Active'),
         ];
     }
 
@@ -91,6 +95,14 @@ protected $_relationClasses = ['group_id'=>'app\models\Group'];
     public function getOffers()
     {
         return $this->hasMany(\app\models\Offer::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return \app\models\query\CatalogQuery
+     */
+    public function getCatalog()
+    {
+        return $this->hasOne(\app\models\Catalog::className(), ['id' => 'catalog_id']);
     }
 
     /**

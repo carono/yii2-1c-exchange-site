@@ -50,11 +50,6 @@ class Order extends BaseOrder implements DocumentInterface
         return User::findByUsername('admin');
     }
 
-    public static function getFields1c()
-    {
-//         TODO: Implement getFields1c() method.
-    }
-
     public function getExportFields1c($context = null)
     {
         return [

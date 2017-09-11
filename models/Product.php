@@ -32,29 +32,6 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setRaw1cData($cml, $product)
     {
-        // TODO: Implement setRaw1cData() method.
-    }
-
-    /**
-     * Ассоциативный массив, где
-     * Ключ - имя xml тега (import.xml > Каталог > Товары > Товар)
-     * Значение - атрибут в модели
-     * Например:
-     * [
-     *      'Наименование' => 'title',
-     *      'Количество'   => 'remnant',
-     *      'Штрихкод'     => 'barcode'
-     * ]
-     *
-     * @return array
-     */
-    public static function getFields1c()
-    {
-        return [
-            'Наименование' => 'name',
-            'Описание' => 'description',
-            'Артикул' => 'article',
-        ];
     }
 
     /**
@@ -189,5 +166,30 @@ class Product extends BaseProduct implements ProductInterface
     public static function getIdFieldName1c()
     {
         return 'accounting_id';
+    }
+
+    /**
+     * @param \Zenwalker\CommerceML\Model\Product $product
+     * @return mixed
+     */
+    public static function createModel1c($product)
+    {
+        $cml = $product->owner;
+        if (!$catalog = Catalog::findOne(['accounting_id' => $cml->catalog->id])) {
+            $catalog = new Catalog();
+            $catalog->accounting_id = $cml->catalog->id;
+        }
+        $catalog->name = $cml->catalog->name;
+        $catalog->save();
+        if (!$model = Product::findOne(['accounting_id' => $product->id])) {
+            $model = new Product();
+            $model->accounting_id = $product->id;
+        }
+        $model->name = $product->name;
+        $model->description = (string)$product->Описание;
+        $model->article = (string)$product->Артикул;
+        $model->catalog_id = $catalog->id;
+        $model->save();
+        return $model;
     }
 }

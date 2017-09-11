@@ -394,12 +394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-1c-exchange.git",
-                "reference": "47be9d7c0f1a20f129cdc856e1c08cc5fc76f1af"
+                "reference": "1804418bebaa2b399d4189b2b2adee889b83d1fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/47be9d7c0f1a20f129cdc856e1c08cc5fc76f1af",
-                "reference": "47be9d7c0f1a20f129cdc856e1c08cc5fc76f1af",
+                "url": "https://api.github.com/repos/carono/yii2-1c-exchange/zipball/1804418bebaa2b399d4189b2b2adee889b83d1fc",
+                "reference": "1804418bebaa2b399d4189b2b2adee889b83d1fc",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
                 }
             ],
             "description": "Yii2 module for the exchange of goods and documents from 1C",
-            "time": "2017-09-09 19:19:57"
+            "time": "2017-09-11 06:24:36"
         },
         {
             "name": "carono/yii2-file-upload",

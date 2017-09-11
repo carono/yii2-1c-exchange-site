@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\query\OfferQuery;
 use carono\exchange1c\interfaces\GroupInterface;
 use \app\models\base\Group as BaseGroup;
 use yii\behaviors\TimestampBehavior;
@@ -53,8 +54,13 @@ class Group extends BaseGroup implements GroupInterface
     public function formForMenu()
     {
         $item = ['label' => $this->name, 'url' => ['/site/group', 'id' => $this->id]];
+        if (!$this->hasChildren(true)) {
+            return null;
+        }
         foreach ($this->groups as $subGroup) {
-            $item['items'][] = $subGroup->formForMenu();
+            if ($menu = $subGroup->formForMenu()) {
+                $item['items'][] = $menu;
+            }
         }
         return $item;
     }
@@ -63,7 +69,9 @@ class Group extends BaseGroup implements GroupInterface
     {
         $items = [];
         foreach (self::findAll(['parent_id' => $parent]) as $group) {
-            $items[] = $group->formForMenu();
+            if ($menu = $group->formForMenu()) {
+                $items[] = $menu;
+            }
         }
         return $items;
     }
@@ -80,6 +88,31 @@ class Group extends BaseGroup implements GroupInterface
                 self::createTree1c($children);
             }
         }
+    }
+
+    /**
+     * @return OfferQuery
+     */
+    public function getOffers()
+    {
+        return Offer::find()->joinWith(['product'])->andWhere(['product.group_id' => $this->id]);
+    }
+
+    /**
+     * @param bool $recursive
+     * @return bool
+     */
+    public function hasChildren($recursive = false)
+    {
+        if ($this->getOffers()->exists()) {
+            return true;
+        }
+        foreach ($this->getGroups()->all() as $child) {
+            if ($child->getOffers()->exists() || ($recursive && $child->hasChildren(true))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

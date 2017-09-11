@@ -104,11 +104,6 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface, Partn
         return $this->password === $password;
     }
 
-    public static function getFields1c()
-    {
-        return [];
-    }
-
     public function getExportFields1c($context = null)
     {
         return [
