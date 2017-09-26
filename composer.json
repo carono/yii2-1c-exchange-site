@@ -23,11 +23,11 @@
     "yiisoft/yii2": "~2.0.5",
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "yiisoft/yii2-swiftmailer": "~2.0.0",
-    "carono/yii2-installer": "^0.0.15",
     "carono/yii2-1c-exchange": "@dev",
-    "carono/yii2-giix": "^0.2.6",
-    "carono/yii2-file-upload": "^0.0.2",
-    "carono/commerceml": "@dev"
+    "carono/yii2-giix": "^0.3.1",
+    "carono/yii2-file-upload": "^1.0",
+    "carono/commerceml": "@dev",
+    "carono/yii2-migrate": "^1.0"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",

@@ -134,7 +134,6 @@ class Product extends BaseProduct implements ProductInterface
             foreach ($property->getAvailableValues() as $value) {
                 if (!$propertyValue = PropertyValue::findOne(['accounting_id' => $value->id])) {
                     $propertyValue = new PropertyValue();
-                    $ids[] = $propertyValue->accounting_id = (string)$value->ИдЗначения;
                     $propertyValue->name = (string)$value->Значение;
                     $propertyValue->property_id = $propertyModel->id;
                     $propertyValue->save();

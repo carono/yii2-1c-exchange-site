@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eabb868c2b5140c9e4c4c0e1d9edc9b3",
+    "content-hash": "a106201ecb20f8f40296ac8a22e9547d",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -56,52 +56,6 @@
             ]
         },
         {
-            "name": "bower-asset/inputmask-multi",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/andr-04/inputmask-multi.git",
-                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/andr-04/inputmask-multi/zipball/2e27d65ece1a87f52488285b7b15199a38e9bb08",
-                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.5",
-                "bower-asset/jquery.inputmask": ">=3.2.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/jquery.inputmask-multi.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Inputmask Multi is a plugin which allows to select a mask of input basing on the beginning of entered data (such as an international phone number)",
-            "keywords": [
-                "ecosystem:jquery",
-                "inputmask",
-                "jquery-plugin",
-                "list",
-                "mask",
-                "multi",
-                "phone",
-                "phonenumber",
-                "selection",
-                "several"
-            ]
-        },
-        {
             "name": "bower-asset/jquery",
             "version": "2.2.4",
             "source": {
@@ -131,31 +85,6 @@
                 "jquery",
                 "library"
             ]
-        },
-        {
-            "name": "bower-asset/jquery-ui",
-            "version": "1.11.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/jqueryui.git",
-                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
-                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.6"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "jquery-ui.js"
-                ],
-                "bower-asset-ignore": []
-            }
         },
         {
             "name": "bower-asset/jquery.inputmask",
@@ -214,45 +143,6 @@
                 "jquery",
                 "mask",
                 "plugins"
-            ]
-        },
-        {
-            "name": "bower-asset/jquery.maskedinput",
-            "version": "1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/digitalBush/jquery.maskedinput.git",
-                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/digitalBush/jquery.maskedinput/zipball/f19728180c604c1b0c62d6aa97af262c0c04d71c",
-                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.8.3"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./dist/jquery.maskedinput.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "spec",
-                    "lib"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "jQuery Masked Input Plugin",
-            "keywords": [
-                "form",
-                "input",
-                "jquery",
-                "mask"
             ]
         },
         {
@@ -345,6 +235,39 @@
             ]
         },
         {
+            "name": "carono/codegen",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/codegen.git",
+                "reference": "06598259021cf1a50141333aa04f29ea8c35b083"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/codegen/zipball/06598259021cf1a50141333aa04f29ea8c35b083",
+                "reference": "06598259021cf1a50141333aa04f29ea8c35b083",
+                "shasum": ""
+            },
+            "require": {
+                "nette/php-generator": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carono\\codegen\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Aleksandr Kasyanov",
+                    "email": "info@carono.ru",
+                    "homepage": "http://carono.ru"
+                }
+            ],
+            "time": "2017-09-25T06:49:03+00:00"
+        },
+        {
             "name": "carono/commerceml",
             "version": "dev-master",
             "source": {
@@ -386,7 +309,7 @@
                 "1c",
                 "commerceml"
             ],
-            "time": "2017-09-08 07:41:20"
+            "time": "2017-09-08T07:41:20+00:00"
         },
         {
             "name": "carono/yii2-1c-exchange",
@@ -426,24 +349,24 @@
                 }
             ],
             "description": "Yii2 module for the exchange of goods and documents from 1C",
-            "time": "2017-09-11 06:24:36"
+            "time": "2017-09-11T06:24:36+00:00"
         },
         {
             "name": "carono/yii2-file-upload",
-            "version": "0.0.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-file-upload.git",
-                "reference": "d4754c243ca75ae4e9ff72a5b07400bd916c29a3"
+                "reference": "59363f120a07d79a188c1fbf2d670554589ce392"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-file-upload/zipball/d4754c243ca75ae4e9ff72a5b07400bd916c29a3",
-                "reference": "d4754c243ca75ae4e9ff72a5b07400bd916c29a3",
+                "url": "https://api.github.com/repos/carono/yii2-file-upload/zipball/59363f120a07d79a188c1fbf2d670554589ce392",
+                "reference": "59363f120a07d79a188c1fbf2d670554589ce392",
                 "shasum": ""
             },
             "require": {
-                "carono/yii2-installer": "*",
+                "carono/yii2-migrate": "@stable",
                 "yiisoft/yii2": "^2.0"
             },
             "type": "yii2-extension",
@@ -458,8 +381,9 @@
             ],
             "authors": [
                 {
-                    "name": "Alexander Kasyanov",
-                    "email": "spamer2000@yandex.ru"
+                    "name": "Aleksandr Kasyanov",
+                    "email": "info@carono.ru",
+                    "homepage": "http://carono.ru"
                 }
             ],
             "description": "File storage table",
@@ -467,24 +391,24 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2017-04-03T14:27:33+00:00"
+            "time": "2017-09-27T18:15:04+00:00"
         },
         {
             "name": "carono/yii2-giix",
-            "version": "0.2.6",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-giix.git",
-                "reference": "fe9eb22d2cb79515260401aac9428163ac23d21c"
+                "reference": "ce88ad4ac305af46129f23f9d2cc0f88a8471d78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-giix/zipball/fe9eb22d2cb79515260401aac9428163ac23d21c",
-                "reference": "fe9eb22d2cb79515260401aac9428163ac23d21c",
+                "url": "https://api.github.com/repos/carono/yii2-giix/zipball/ce88ad4ac305af46129f23f9d2cc0f88a8471d78",
+                "reference": "ce88ad4ac305af46129f23f9d2cc0f88a8471d78",
                 "shasum": ""
             },
             "require": {
-                "carono/yii2-widgets": "@stable",
+                "carono/codegen": "@stable",
                 "nette/php-generator": "@stable",
                 "schmunk42/yii2-giiant": "@stable"
             },
@@ -508,20 +432,20 @@
                 }
             ],
             "description": "Yii2 gii generator based on schmunk42 yii2-giiant",
-            "time": "2017-08-21T15:05:02+00:00"
+            "time": "2017-09-25T12:25:39+00:00"
         },
         {
-            "name": "carono/yii2-installer",
-            "version": "0.0.15",
+            "name": "carono/yii2-migrate",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/carono/yii2-installer.git",
-                "reference": "436fd3701b8f83015813a9562f01c38185aeeaf5"
+                "url": "https://github.com/carono/yii2-migrate.git",
+                "reference": "26d1744cf0a4592f012428dc57caabdb2578a875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-installer/zipball/436fd3701b8f83015813a9562f01c38185aeeaf5",
-                "reference": "436fd3701b8f83015813a9562f01c38185aeeaf5",
+                "url": "https://api.github.com/repos/carono/yii2-migrate/zipball/26d1744cf0a4592f012428dc57caabdb2578a875",
+                "reference": "26d1744cf0a4592f012428dc57caabdb2578a875",
                 "shasum": ""
             },
             "require": {
@@ -530,42 +454,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "carono\\yii2installer\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "carno",
-                    "email": "spamer2000@list.ru"
-                }
-            ],
-            "time": "2017-07-03T19:41:35+00:00"
-        },
-        {
-            "name": "carono/yii2-rbac",
-            "version": "1.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/carono/yii2-rbac.git",
-                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-rbac/zipball/0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
-                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "~2.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "bootstrap": "carono\\yii2rbac\\Bootstrap"
-            },
-            "autoload": {
-                "psr-4": {
-                    "carono\\yii2rbac\\": ""
+                    "carono\\yii2migrate\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -574,61 +463,12 @@
             ],
             "authors": [
                 {
-                    "name": "carno",
-                    "email": "spamer2000@list.ru"
-                }
-            ],
-            "description": "Yii2 RBAC extension",
-            "time": "2017-06-10T06:53:21+00:00"
-        },
-        {
-            "name": "carono/yii2-widgets",
-            "version": "0.1.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/carono/yii2-widgets.git",
-                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-widgets/zipball/d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
-                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/inputmask-multi": "@stable",
-                "bower-asset/jquery.maskedinput": "@stable",
-                "carono/yii2-rbac": "@stable",
-                "kartik-v/yii2-widget-datetimepicker": "@stable",
-                "kartik-v/yii2-widget-depdrop": "@stable",
-                "kartik-v/yii2-widget-select2": "@stable",
-                "kartik-v/yii2-widget-typeahead": "@stable",
-                "yiisoft/yii2": "~2.0",
-                "yiisoft/yii2-jui": "@stable"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "carono\\yii2widgets\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Kasyanov",
+                    "name": "Aleksandr Kasyanov",
                     "email": "info@carono.ru",
                     "homepage": "http://carono.ru"
                 }
             ],
-            "description": "Widgets for yii2",
-            "keywords": [
-                "extension",
-                "yii2"
-            ],
-            "time": "2017-07-11T08:49:05+00:00"
+            "time": "2017-09-29T09:41:04+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -1148,303 +988,6 @@
                 "phpunit"
             ],
             "time": "2017-06-20T11:22:48+00:00"
-        },
-        {
-            "name": "kartik-v/dependent-dropdown",
-            "version": "v1.4.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/dependent-dropdown.git",
-                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/dependent-dropdown/zipball/1349e7f5816a65e89bc227098386aac5b2c89363",
-                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\plugins\\depdrop\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "A multi level dependent dropdown JQuery plugin that allows nested dependencies.",
-            "homepage": "https://github.com/kartik-v/dependent-dropdown",
-            "keywords": [
-                "dependent",
-                "dropdown",
-                "jquery",
-                "option",
-                "select"
-            ],
-            "time": "2017-08-01T11:43:55+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.8.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
-                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2-bootstrap": "@dev"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.8.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\base\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
-            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
-            "keywords": [
-                "base",
-                "extension",
-                "foundation",
-                "krajee",
-                "widget",
-                "yii2"
-            ],
-            "time": "2017-02-22T05:58:53+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-widget-datetimepicker",
-            "version": "v1.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
-                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
-                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\datetime\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
-            "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
-            "keywords": [
-                "datetime",
-                "extension",
-                "form",
-                "jquery",
-                "picker",
-                "plugin",
-                "select2",
-                "widget",
-                "yii2"
-            ],
-            "time": "2017-06-08T05:53:28+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-widget-depdrop",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-depdrop.git",
-                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-depdrop/zipball/6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
-                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/dependent-dropdown": "~1.4",
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\depdrop\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Widget that enables setting up dependent dropdowns with nested dependencies (sub repo split from yii2-widgets)",
-            "homepage": "https://github.com/kartik-v/yii2-widget-depdrop",
-            "keywords": [
-                "dependent",
-                "dropdown",
-                "extension",
-                "form",
-                "jquery",
-                "plugin",
-                "widget",
-                "yii2"
-            ],
-            "time": "2016-01-10T17:30:48+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-widget-select2",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/a129c6663078fe0ad14cde2a5d0afd071c7608e9",
-                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\select2\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
-            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
-            "keywords": [
-                "dropdown",
-                "extension",
-                "form",
-                "jquery",
-                "plugin",
-                "select2",
-                "widget",
-                "yii2"
-            ],
-            "time": "2017-08-07T18:12:36+00:00"
-        },
-        {
-            "name": "kartik-v/yii2-widget-typeahead",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-typeahead.git",
-                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-typeahead/zipball/e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
-                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\typeahead\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Enhanced Yii2 wrapper for the Twitter Typeahead plugin (sub repo split from yii2-widgets).",
-            "homepage": "https://github.com/kartik-v/yii2-widget-typeahead",
-            "keywords": [
-                "dropdown",
-                "extension",
-                "form",
-                "jquery",
-                "plugin",
-                "typeahead",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-06-28T18:05:41+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
@@ -2872,56 +2415,6 @@
             "time": "2016-03-18T14:09:46+00:00"
         },
         {
-            "name": "yiisoft/yii2-jui",
-            "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/yii2-jui.git",
-                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
-                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery-ui": "1.11.*@stable",
-                "yiisoft/yii2": ">=2.0.4"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                },
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "yii\\jui\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com"
-                }
-            ],
-            "description": "The Jquery UI extension for the Yii framework",
-            "keywords": [
-                "jQuery UI",
-                "yii2"
-            ],
-            "time": "2016-07-22T22:26:59+00:00"
-        },
-        {
             "name": "yiisoft/yii2-swiftmailer",
             "version": "2.0.7",
             "source": {
@@ -3033,6 +2526,116 @@
             "time": "2016-10-30T11:50:56+00:00"
         },
         {
+            "name": "bower-asset/inputmask-multi",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andr-04/inputmask-multi.git",
+                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andr-04/inputmask-multi/zipball/2e27d65ece1a87f52488285b7b15199a38e9bb08",
+                "reference": "2e27d65ece1a87f52488285b7b15199a38e9bb08",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.5",
+                "bower-asset/jquery.inputmask": ">=3.2.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/jquery.inputmask-multi.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Inputmask Multi is a plugin which allows to select a mask of input basing on the beginning of entered data (such as an international phone number)",
+            "keywords": [
+                "ecosystem:jquery",
+                "inputmask",
+                "jquery-plugin",
+                "list",
+                "mask",
+                "multi",
+                "phone",
+                "phonenumber",
+                "selection",
+                "several"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "1.11.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "reference": "c34f8dbf3ba57b3784b93f26119f436c0e8288e1",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "jquery-ui.js"
+                ],
+                "bower-asset-ignore": []
+            }
+        },
+        {
+            "name": "bower-asset/jquery.maskedinput",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalBush/jquery.maskedinput.git",
+                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalBush/jquery.maskedinput/zipball/f19728180c604c1b0c62d6aa97af262c0c04d71c",
+                "reference": "f19728180c604c1b0c62d6aa97af262c0c04d71c",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8.3"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./dist/jquery.maskedinput.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "spec",
+                    "lib"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery Masked Input Plugin",
+            "keywords": [
+                "form",
+                "input",
+                "jquery",
+                "mask"
+            ]
+        },
+        {
             "name": "carono/xml-doc",
             "version": "0.0.1",
             "source": {
@@ -3063,6 +2666,127 @@
                 }
             ],
             "time": "2017-07-25T05:17:16+00:00"
+        },
+        {
+            "name": "carono/yii2-installer",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/yii2-installer.git",
+                "reference": "ba712f577e5ffeffe9edbb27f9ca8e5f5923dd64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/yii2-installer/zipball/ba712f577e5ffeffe9edbb27f9ca8e5f5923dd64",
+                "reference": "ba712f577e5ffeffe9edbb27f9ca8e5f5923dd64",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "carono\\yii2installer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "carno",
+                    "email": "spamer2000@list.ru"
+                }
+            ],
+            "abandoned": "carono/yii2-migrate",
+            "time": "2017-09-27T04:16:15+00:00"
+        },
+        {
+            "name": "carono/yii2-rbac",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/yii2-rbac.git",
+                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/yii2-rbac/zipball/0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
+                "reference": "0db23215596f0fdb3c86cd5dd1058d87b03f1d04",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "carono\\yii2rbac\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "carono\\yii2rbac\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carno",
+                    "email": "spamer2000@list.ru"
+                }
+            ],
+            "description": "Yii2 RBAC extension",
+            "time": "2017-06-10T06:53:21+00:00"
+        },
+        {
+            "name": "carono/yii2-widgets",
+            "version": "0.1.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/yii2-widgets.git",
+                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/yii2-widgets/zipball/d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
+                "reference": "d49a74d927dcc93fc379b8a121ad55dbe2c78a6b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/inputmask-multi": "@stable",
+                "bower-asset/jquery.maskedinput": "@stable",
+                "carono/yii2-rbac": "@stable",
+                "kartik-v/yii2-widget-datetimepicker": "@stable",
+                "kartik-v/yii2-widget-depdrop": "@stable",
+                "kartik-v/yii2-widget-select2": "@stable",
+                "kartik-v/yii2-widget-typeahead": "@stable",
+                "yiisoft/yii2": "~2.0",
+                "yiisoft/yii2-jui": "@stable"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "carono\\yii2widgets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kasyanov",
+                    "email": "info@carono.ru",
+                    "homepage": "http://carono.ru"
+                }
+            ],
+            "description": "Widgets for yii2",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2017-07-11T08:49:05+00:00"
         },
         {
             "name": "codeception/base",
@@ -3398,6 +3122,303 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "kartik-v/dependent-dropdown",
+            "version": "v1.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/dependent-dropdown.git",
+                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/dependent-dropdown/zipball/1349e7f5816a65e89bc227098386aac5b2c89363",
+                "reference": "1349e7f5816a65e89bc227098386aac5b2c89363",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\depdrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A multi level dependent dropdown JQuery plugin that allows nested dependencies.",
+            "homepage": "https://github.com/kartik-v/dependent-dropdown",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "jquery",
+                "option",
+                "select"
+            ],
+            "time": "2017-08-01T11:43:55+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-krajee-base",
+            "version": "v1.8.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2-bootstrap": "@dev"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\base\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+            "keywords": [
+                "base",
+                "extension",
+                "foundation",
+                "krajee",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-02-22T05:58:53+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-datetimepicker",
+            "version": "v1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
+                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
+                "reference": "e843520aca008dc0807aa7ea99bfab2cc03c9a3c",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\datetime\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
+            "keywords": [
+                "datetime",
+                "extension",
+                "form",
+                "jquery",
+                "picker",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-06-08T05:53:28+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-depdrop",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-depdrop.git",
+                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-depdrop/zipball/6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
+                "reference": "6918ca6f7d7be153c80f6aa9c261f9b333293e9c",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/dependent-dropdown": "~1.4",
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\depdrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Widget that enables setting up dependent dropdowns with nested dependencies (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-depdrop",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-01-10T17:30:48+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-select2",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/a129c6663078fe0ad14cde2a5d0afd071c7608e9",
+                "reference": "a129c6663078fe0ad14cde2a5d0afd071c7608e9",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\select2\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-08-07T18:12:36+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-typeahead",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-typeahead.git",
+                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-typeahead/zipball/e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
+                "reference": "e369cd55cb2fb9d3a82b57ea6c9a62d69f14fb94",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\typeahead\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Twitter Typeahead plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-typeahead",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "typeahead",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-06-28T18:05:41+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5004,6 +5025,56 @@
                 "yii2"
             ],
             "time": "2015-03-01T06:22:44+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-jui",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-jui.git",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "reference": "843a2160cfe30f5c8b0cb2e9dbd8ee6bcf97e71d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-ui": "1.11.*@stable",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\jui\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The Jquery UI extension for the Yii framework",
+            "keywords": [
+                "jQuery UI",
+                "yii2"
+            ],
+            "time": "2016-07-22T22:26:59+00:00"
         }
     ],
     "aliases": [],

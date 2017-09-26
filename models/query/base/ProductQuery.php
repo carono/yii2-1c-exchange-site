@@ -1,15 +1,20 @@
 <?php
+
+/**
+ * This class is generated using the package carono/codegen
+ */
+
 namespace app\models\query\base;
 
-use carono\yii2helpers\QueryHelper;
 use yii\data\ActiveDataProvider;
 use yii\data\Sort;
+use yii\db\ActiveQuery;
 
 /**
  * This is the ActiveQuery class for \app\models\Product
  * @see \app\models\Product
  */
-class ProductQuery extends \yii\db\ActiveQuery
+class ProductQuery extends ActiveQuery
 {
 	/**
 	 * @inheritdoc
@@ -51,14 +56,11 @@ class ProductQuery extends \yii\db\ActiveQuery
 
 
 	/**
-	 * @var mixed $model
+	 * @var array|\yii\db\ActiveRecord $model
 	 * @return $this
 	 */
 	public function filter($model = null)
 	{
-		if ($model){
-		    QueryHelper::regular($model, $this);
-		}
 		return $this;
 	}
 }
