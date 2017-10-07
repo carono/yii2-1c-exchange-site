@@ -5,7 +5,7 @@ namespace app\models;
 use app\components\Basket;
 use carono\exchange1c\interfaces\GroupInterface;
 use carono\exchange1c\interfaces\OfferInterface;
-use carono\yii2installer\traits\PivotTrait;
+use carono\yii2migrate\traits\PivotTrait;
 use Yii;
 use \app\models\base\Offer as BaseOffer;
 use yii\helpers\ArrayHelper;
