@@ -54,8 +54,12 @@ class m170626_103131_init extends \yii\db\Migration
                 'catalog_id' => self::foreignKey('{{%catalog}}'),
                 'is_active' => self::boolean()->notNull()->defaultValue(true),
                 'images' => self::pivot('{{%file_upload}}', 'image_id'),
-                'requisite' => self::pivot('{{%requisite}}')->columns(['value' => self::string(1024),]),
-                'properties' => self::pivot('{{%property}}')->columns(['property_value_id' => self::foreignKey('{{%property_value}}')]),
+                'requisite' => self::pivot('{{%requisite}}')->columns([
+                    'value' => self::string(1024),
+                ]),
+                'properties' => self::pivot('{{%property}}')->columns([
+                    'property_value_id' => self::foreignKey('{{%property_value}}')
+                ]),
                 'created_at' => self::dateTime(),
                 'updated_at' => self::dateTime(),
             ],
@@ -86,7 +90,9 @@ class m170626_103131_init extends \yii\db\Migration
                 'remnant' => self::decimal(10, 3)->comment('Остаток (количество)'),
                 'warehouses' => self::pivot('{{%warehouse}}'),
                 'prices' => self::pivot('{{%price}}'),
-                'specifications' => self::pivot('{{%specification}}')->columns(['value' => self::string()]),
+                'specifications' => self::pivot('{{%specification}}')->columns([
+                    'value' => self::string()
+                ]),
                 'is_active' => self::boolean()->notNull()->defaultValue(true)
             ],
             '{{%order_status}}' => [

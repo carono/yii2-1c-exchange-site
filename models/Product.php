@@ -89,7 +89,7 @@ class Product extends BaseProduct implements ProductInterface
     public function addImage1c($path, $caption)
     {
         if (!$this->getImages()->andWhere(['size' => filesize($path)])->exists()) {
-            $this->addPivot(FileUpload::upload($path), PvProductImage::className());
+            $this->addPivot(FileUpload::startUpload($path)->process(), PvProductImage::className());
         }
     }
 

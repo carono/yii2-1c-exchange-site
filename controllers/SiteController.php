@@ -154,8 +154,11 @@ class SiteController extends Controller
         if (!($file = FileUpload::findOne($id)) || !$file->fileExist()) {
             throw new FileNotFoundException();
         }
-        $content = file_get_contents($file->getFullPath());
-        Yii::$app->response->sendContentAsFile($content, $file->getFullName());
+        $content = file_get_contents($file->realFilePath);
+        Yii::$app->response->sendContentAsFile($content, $file->getFileName(), [
+            'inline' => true,
+            'mimeType' => $file->mime_type
+        ]);
     }
 
     public function actionPutToBasket($id)
