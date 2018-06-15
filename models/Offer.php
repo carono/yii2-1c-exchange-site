@@ -43,10 +43,10 @@ class Offer extends BaseOffer implements OfferInterface
     {
         if (!$offerModel = self::findOne(['accounting_id' => $offer->id])) {
             $offerModel = new self;
-            $offerModel->name = $offer->name;
-            $offerModel->accounting_id = $offer->id;
+            $offerModel->name = (string)$offer->name;
+            $offerModel->accounting_id = (string)$offer->id;
         }
-        $offerModel->remnant = $offer->Количество;
+        $offerModel->remnant = (string)$offer->Количество;
         return $offerModel;
     }
 
