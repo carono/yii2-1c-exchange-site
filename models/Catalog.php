@@ -16,7 +16,7 @@ class Catalog extends BaseCatalog
     {
         return [
             'timestamp' => [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'value' => new Expression('NOW()')
             ]
         ];

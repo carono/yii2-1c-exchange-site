@@ -11,11 +11,12 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_product_properties".
+ * This is the base-model class for table "{{%pv_product_properties}}".
  *
  * @property integer $product_id
  * @property integer $property_id
  * @property integer $property_value_id
+ * @property string $value
  *
  * @property \app\models\Product $product
  * @property \app\models\Property $property
@@ -23,13 +24,6 @@ use yii\helpers\ArrayHelper;
  */
 class PvProductProperty extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'product_id' => 'app\models\Product',
-		'property_id' => 'app\models\Property',
-		'property_value_id' => 'app\models\PropertyValue',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -46,7 +40,10 @@ class PvProductProperty extends ActiveRecord
 	{
 		return [
 		            [['product_id', 'property_id'], 'required'],
+		            [['product_id', 'property_id', 'property_value_id'], 'default', 'value' => null],
 		            [['product_id', 'property_id', 'property_value_id'], 'integer'],
+		            [['value'], 'string', 'max' => 255],
+		            [['product_id', 'property_id'], 'unique', 'targetAttribute' => ['product_id', 'property_id']],
 		            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::className(), 'targetAttribute' => ['product_id' => 'id']],
 		            [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Property::className(), 'targetAttribute' => ['property_id' => 'id']],
 		            [['property_value_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\PropertyValue::className(), 'targetAttribute' => ['property_value_id' => 'id']],
@@ -77,7 +74,8 @@ class PvProductProperty extends ActiveRecord
 		return [
 		    'product_id' => Yii::t('models', 'Product ID'),
 		    'property_id' => Yii::t('models', 'Property ID'),
-		    'property_value_id' => Yii::t('models', 'Property Value ID')
+		    'property_value_id' => Yii::t('models', 'Property Value ID'),
+		    'value' => Yii::t('models', 'Value')
 		];
 	}
 

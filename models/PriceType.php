@@ -2,8 +2,7 @@
 
 namespace app\models;
 
-use Yii;
-use \app\models\base\PriceType as BasePriceType;
+use app\models\base\PriceType as BasePriceType;
 use Zenwalker\CommerceML\Model\Simple;
 
 /**

@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_product_requisite".
+ * This is the base-model class for table "{{%pv_product_requisite}}".
  *
  * @property integer $product_id
  * @property integer $requisite_id
@@ -22,12 +22,6 @@ use yii\helpers\ArrayHelper;
  */
 class PvProductRequisite extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'product_id' => 'app\models\Product',
-		'requisite_id' => 'app\models\Requisite',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -44,8 +38,10 @@ class PvProductRequisite extends ActiveRecord
 	{
 		return [
 		            [['product_id', 'requisite_id'], 'required'],
+		            [['product_id', 'requisite_id'], 'default', 'value' => null],
 		            [['product_id', 'requisite_id'], 'integer'],
 		            [['value'], 'string', 'max' => 1024],
+		            [['product_id', 'requisite_id'], 'unique', 'targetAttribute' => ['product_id', 'requisite_id']],
 		            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::className(), 'targetAttribute' => ['product_id' => 'id']],
 		            [['requisite_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Requisite::className(), 'targetAttribute' => ['requisite_id' => 'id']],
 		        ];

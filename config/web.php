@@ -1,8 +1,10 @@
 <?php
 
-use \app\models\Offer;
-use app\models\Price;
-use carono\exchange1c\helpers\ModuleHelper;
+use app\models\Group;
+use app\models\Offer;
+use app\models\Order;
+use app\models\Product;
+use app\models\User;
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
@@ -12,24 +14,29 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
     'modules' => [
-        'redactor' => [
-            'class' => 'yii\redactor\RedactorModule',
-            'uploadDir' => '@vendor/carono/yii2-1c-exchange/files/articles',
-            'imageAllowExtensions' => ['jpg', 'png', 'gif'],
-            'on beforeAction' => function () {
-                $path = ModuleHelper::getModuleNameByClass('carono\exchange1c\ExchangeModule', 'exchange');
-                $redactor = \Yii::$app->getModule('redactor');
-                $redactor->uploadUrl = "/$path/file/article?file=";
-                \Yii::$app->setModule('redactor', $redactor);
-            }
-        ],
+//        'redactor' => [
+//            'class' => 'yii\redactor\RedactorModule',
+//            'uploadDir' => '@vendor/carono/yii2-1c-exchange/files/articles',
+//            'imageAllowExtensions' => ['jpg', 'png', 'gif'],
+//            'on beforeAction' => function () {
+//                $path = ModuleHelper::getModuleNameByClass('carono\exchange1c\ExchangeModule', 'exchange');
+//                $redactor = \Yii::$app->getModule('redactor');
+//                $redactor->uploadUrl = "/$path/file/article?file=";
+//                \Yii::$app->setModule('redactor', $redactor);
+//            }
+//        ],
         'exchange' => [
             'class' => 'carono\exchange1c\ExchangeModule',
-            'productClass' => 'app\models\Product',
-            'documentClass' => 'app\models\Order',
-            'groupClass' => 'app\models\Group',
-            'offerClass' => 'app\models\Offer',
+            'productClass' => Product::class,
+            'documentClass' => Order::class,
+            'groupClass' => Group::class,
+            'offerClass' => Offer::class,
+            'partnerClass' => User::class,
             'exchangeDocuments' => true,
             'debug' => true
         ],

@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "group".
+ * This is the base-model class for table "{{%group}}".
  *
  * @property integer $id
  * @property string $name
@@ -27,9 +27,6 @@ use yii\helpers\ArrayHelper;
  */
 class Group extends ActiveRecord
 {
-	protected $_relationClasses = ['parent_id' => 'app\models\Group'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -45,6 +42,7 @@ class Group extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['parent_id'], 'default', 'value' => null],
 		            [['parent_id'], 'integer'],
 		            [['is_active'], 'boolean'],
 		            [['name', 'accounting_id'], 'string', 'max' => 255],

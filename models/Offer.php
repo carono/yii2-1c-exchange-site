@@ -114,9 +114,9 @@ class Offer extends BaseOffer implements OfferInterface
             'БазоваяЕдиница' => [
                 '@content' => 'шт',
                 '@attributes' => [
-                    'Код' => "796",
-                    'НаименованиеПолное' => "Штука",
-                    'МеждународноеСокращение' => "PCE"
+                    'Код' => '796',
+                    'НаименованиеПолное' => 'Штука',
+                    'МеждународноеСокращение' => 'PCE'
                 ]
             ]
         ];
@@ -134,14 +134,14 @@ class Offer extends BaseOffer implements OfferInterface
      */
     public function setPrice1c($price)
     {
-        $priceType = PriceType::createByMl($price->getType());
+        $priceType = PriceType::findOne(['accounting_id' => $price->getType()->id]);
         $priceModel = Price::createByMl($price, $this, $priceType);
-        $this->addPivot($priceModel, PvOfferPrice::className());
+        $this->addPivot($priceModel, PvOfferPrice::class);
     }
 
     /**
      * @param $types
-     * @return mixed
+     * @return void
      */
     public static function createPriceTypes1c($types)
     {
@@ -164,7 +164,7 @@ class Offer extends BaseOffer implements OfferInterface
     public function setSpecification1c($specification)
     {
         $specificationModel = Specification::createByMl($specification);
-        $this->addPivot($specificationModel, PvOfferSpecification::className(), ['value' => (string)$specification->Значение]);
+        $this->addPivot($specificationModel, PvOfferSpecification::class, ['value' => (string)$specification->Значение]);
     }
 
     /**

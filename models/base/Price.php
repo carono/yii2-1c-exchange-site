@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "price".
+ * This is the base-model class for table "{{%price}}".
  *
  * @property integer $id
  * @property string $performance
@@ -26,9 +26,6 @@ use yii\helpers\ArrayHelper;
  */
 class Price extends ActiveRecord
 {
-	protected $_relationClasses = ['type_id' => 'app\models\PriceType'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -45,6 +42,7 @@ class Price extends ActiveRecord
 	{
 		return [
 		            [['value', 'rate'], 'number'],
+		            [['type_id'], 'default', 'value' => null],
 		            [['type_id'], 'integer'],
 		            [['performance', 'currency'], 'string', 'max' => 255],
 		            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\PriceType::className(), 'targetAttribute' => ['type_id' => 'id']],
@@ -116,7 +114,7 @@ class Price extends ActiveRecord
 	 */
 	public function getOffers()
 	{
-		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_offer_prices', ['price_id' => 'id']);
+		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('{{%pv_offer_prices}}', ['price_id' => 'id']);
 	}
 
 

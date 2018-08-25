@@ -53,7 +53,7 @@ protected $_relationClasses = ['type_id'=>'app\models\CostType'];
             [['value', 'rate'], 'number'],
             [['type_id'], 'integer'],
             [['performance', 'currency'], 'string', 'max' => 255],
-            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\CostType::className(), 'targetAttribute' => ['type_id' => 'id']]
+            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\CostType::class, 'targetAttribute' => ['type_id' => 'id']]
         ];
     }
 
@@ -77,7 +77,7 @@ protected $_relationClasses = ['type_id'=>'app\models\CostType'];
      */
     public function getType()
     {
-        return $this->hasOne(\app\models\CostType::className(), ['id' => 'type_id']);
+        return $this->hasOne(\app\models\CostType::class, ['id' => 'type_id']);
     }
 
     /**
@@ -85,7 +85,7 @@ protected $_relationClasses = ['type_id'=>'app\models\CostType'];
      */
     public function getOffers()
     {
-        return $this->hasMany(\app\models\Offer::className(), ['cost_id' => 'id']);
+        return $this->hasMany(\app\models\Offer::class, ['cost_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

@@ -88,7 +88,7 @@ echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'columns' => [
                     'property.name',
-                    'propertyValue.name',
+                    'public_value',
                 ],
             ]);
             ?>

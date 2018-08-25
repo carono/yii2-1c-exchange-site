@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "order".
+ * This is the base-model class for table "{{%order}}".
  *
  * @property integer $id
  * @property integer $user_id
@@ -26,9 +26,6 @@ use yii\helpers\ArrayHelper;
  */
 class Order extends ActiveRecord
 {
-	protected $_relationClasses = ['status_id' => 'app\models\OrderStatus'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -44,6 +41,7 @@ class Order extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['user_id', 'status_id'], 'default', 'value' => null],
 		            [['user_id', 'status_id'], 'integer'],
 		            [['sum'], 'number'],
 		            [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\OrderStatus::className(), 'targetAttribute' => ['status_id' => 'id']],
@@ -115,7 +113,7 @@ class Order extends ActiveRecord
 	 */
 	public function getOffers()
 	{
-		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_order_offers', ['order_id' => 'id']);
+		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('{{%pv_order_offers}}', ['order_id' => 'id']);
 	}
 
 

@@ -45,7 +45,7 @@ class Group extends BaseGroup implements GroupInterface
     {
         return [
             'timestamp' => [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'value' => new Expression('NOW()'),
             ],
         ];

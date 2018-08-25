@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "catalog".
+ * This is the base-model class for table "{{%catalog}}".
  *
  * @property integer $id
  * @property string $name
@@ -23,9 +23,6 @@ use yii\helpers\ArrayHelper;
  */
 class Catalog extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */

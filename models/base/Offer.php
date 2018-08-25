@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "offer".
+ * This is the base-model class for table "{{%offer}}".
  *
  * @property integer $id
  * @property string $name
@@ -32,9 +32,6 @@ use yii\helpers\ArrayHelper;
  */
 class Offer extends ActiveRecord
 {
-	protected $_relationClasses = ['product_id' => 'app\models\Product'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -50,6 +47,7 @@ class Offer extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['product_id'], 'default', 'value' => null],
 		            [['product_id'], 'integer'],
 		            [['remnant'], 'number'],
 		            [['is_active'], 'boolean'],
@@ -124,7 +122,7 @@ class Offer extends ActiveRecord
 	 */
 	public function getPrices()
 	{
-		return $this->hasMany(\app\models\Price::className(), ['id' => 'price_id'])->viaTable('pv_offer_prices', ['offer_id' => 'id']);
+		return $this->hasMany(\app\models\Price::className(), ['id' => 'price_id'])->viaTable('{{%pv_offer_prices}}', ['offer_id' => 'id']);
 	}
 
 
@@ -142,7 +140,7 @@ class Offer extends ActiveRecord
 	 */
 	public function getSpecifications()
 	{
-		return $this->hasMany(\app\models\Specification::className(), ['id' => 'specification_id'])->viaTable('pv_offer_specifications', ['offer_id' => 'id']);
+		return $this->hasMany(\app\models\Specification::className(), ['id' => 'specification_id'])->viaTable('{{%pv_offer_specifications}}', ['offer_id' => 'id']);
 	}
 
 
@@ -160,7 +158,7 @@ class Offer extends ActiveRecord
 	 */
 	public function getWarehouses()
 	{
-		return $this->hasMany(\app\models\Warehouse::className(), ['id' => 'warehouse_id'])->viaTable('pv_offer_warehouses', ['offer_id' => 'id']);
+		return $this->hasMany(\app\models\Warehouse::className(), ['id' => 'warehouse_id'])->viaTable('{{%pv_offer_warehouses}}', ['offer_id' => 'id']);
 	}
 
 
@@ -178,7 +176,7 @@ class Offer extends ActiveRecord
 	 */
 	public function getOrders()
 	{
-		return $this->hasMany(\app\models\Order::className(), ['id' => 'order_id'])->viaTable('pv_order_offers', ['offer_id' => 'id']);
+		return $this->hasMany(\app\models\Order::className(), ['id' => 'order_id'])->viaTable('{{%pv_order_offers}}', ['offer_id' => 'id']);
 	}
 
 

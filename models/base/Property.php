@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "property".
+ * This is the base-model class for table "{{%property}}".
  *
  * @property integer $id
  * @property string $name
@@ -23,9 +23,6 @@ use yii\helpers\ArrayHelper;
  */
 class Property extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -108,7 +105,7 @@ class Property extends ActiveRecord
 	 */
 	public function getProducts()
 	{
-		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('pv_product_properties', ['property_id' => 'id']);
+		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('{{%pv_product_properties}}', ['property_id' => 'id']);
 	}
 
 

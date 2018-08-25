@@ -17,7 +17,8 @@ use Yii;
 class PvOrderProduct extends \yii\db\ActiveRecord
 {
 
-protected $_relationClasses = ['order_id'=>'app\models\Order','product_id'=>'app\models\Product'];
+protected $_relationClasses = ['order_id'=>'app\models\Order',
+'product_id'=>'app\models\Product'];
 
 
     /**
@@ -50,8 +51,8 @@ protected $_relationClasses = ['order_id'=>'app\models\Order','product_id'=>'ap
             [['order_id', 'product_id'], 'required'],
             [['order_id', 'product_id'], 'integer'],
             [['count'], 'number'],
-            [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Order::className(), 'targetAttribute' => ['order_id' => 'id']],
-            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::className(), 'targetAttribute' => ['product_id' => 'id']]
+            [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Order::class, 'targetAttribute' => ['order_id' => 'id']],
+            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::class, 'targetAttribute' => ['product_id' => 'id']]
         ];
     }
 
@@ -72,7 +73,7 @@ protected $_relationClasses = ['order_id'=>'app\models\Order','product_id'=>'ap
      */
     public function getOrder()
     {
-        return $this->hasOne(\app\models\Order::className(), ['id' => 'order_id']);
+        return $this->hasOne(\app\models\Order::class, ['id' => 'order_id']);
     }
 
     /**
@@ -80,7 +81,7 @@ protected $_relationClasses = ['order_id'=>'app\models\Order','product_id'=>'ap
      */
     public function getProduct()
     {
-        return $this->hasOne(\app\models\Product::className(), ['id' => 'product_id']);
+        return $this->hasOne(\app\models\Product::class, ['id' => 'product_id']);
     }
     public function getRelationClass($attribute)
     {

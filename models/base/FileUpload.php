@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "file_upload".
+ * This is the base-model class for table "{{%file_upload}}".
  *
  * @property integer $id
  * @property string $uid
@@ -36,9 +36,6 @@ use yii\helpers\ArrayHelper;
  */
 class FileUpload extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -54,6 +51,7 @@ class FileUpload extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['user_id', 'size'], 'default', 'value' => null],
 		            [['user_id', 'size'], 'integer'],
 		            [['data', 'binary'], 'string'],
 		            [['is_active', 'is_exist'], 'boolean'],
@@ -130,7 +128,7 @@ class FileUpload extends ActiveRecord
 	 */
 	public function getProducts()
 	{
-		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('pv_product_images', ['image_id' => 'id']);
+		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('{{%pv_product_images}}', ['image_id' => 'id']);
 	}
 
 

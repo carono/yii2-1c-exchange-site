@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "product".
+ * This is the base-model class for table "{{%product}}".
  *
  * @property integer $id
  * @property string $name
@@ -36,12 +36,6 @@ use yii\helpers\ArrayHelper;
  */
 class Product extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'catalog_id' => 'app\models\Catalog',
-		'group_id' => 'app\models\Group',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -57,6 +51,7 @@ class Product extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['group_id', 'catalog_id'], 'default', 'value' => null],
 		            [['group_id', 'catalog_id'], 'integer'],
 		            [['is_active'], 'boolean'],
 		            [['name', 'article', 'description', 'accounting_id'], 'string', 'max' => 255],
@@ -153,7 +148,7 @@ class Product extends ActiveRecord
 	 */
 	public function getImages()
 	{
-		return $this->hasMany(\app\models\FileUpload::className(), ['id' => 'image_id'])->viaTable('pv_product_images', ['product_id' => 'id']);
+		return $this->hasMany(\app\models\FileUpload::className(), ['id' => 'image_id'])->viaTable('{{%pv_product_images}}', ['product_id' => 'id']);
 	}
 
 
@@ -171,7 +166,7 @@ class Product extends ActiveRecord
 	 */
 	public function getProperties()
 	{
-		return $this->hasMany(\app\models\Property::className(), ['id' => 'property_id'])->viaTable('pv_product_properties', ['product_id' => 'id']);
+		return $this->hasMany(\app\models\Property::className(), ['id' => 'property_id'])->viaTable('{{%pv_product_properties}}', ['product_id' => 'id']);
 	}
 
 
@@ -189,7 +184,7 @@ class Product extends ActiveRecord
 	 */
 	public function getRequisites()
 	{
-		return $this->hasMany(\app\models\Requisite::className(), ['id' => 'requisite_id'])->viaTable('pv_product_requisite', ['product_id' => 'id']);
+		return $this->hasMany(\app\models\Requisite::className(), ['id' => 'requisite_id'])->viaTable('{{%pv_product_requisite}}', ['product_id' => 'id']);
 	}
 
 

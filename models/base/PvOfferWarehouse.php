@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_offer_warehouses".
+ * This is the base-model class for table "{{%pv_offer_warehouses}}".
  *
  * @property integer $offer_id
  * @property integer $warehouse_id
@@ -21,12 +21,6 @@ use yii\helpers\ArrayHelper;
  */
 class PvOfferWarehouse extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'offer_id' => 'app\models\Offer',
-		'warehouse_id' => 'app\models\Warehouse',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -43,7 +37,9 @@ class PvOfferWarehouse extends ActiveRecord
 	{
 		return [
 		            [['offer_id', 'warehouse_id'], 'required'],
+		            [['offer_id', 'warehouse_id'], 'default', 'value' => null],
 		            [['offer_id', 'warehouse_id'], 'integer'],
+		            [['offer_id', 'warehouse_id'], 'unique', 'targetAttribute' => ['offer_id', 'warehouse_id']],
 		            [['offer_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Offer::className(), 'targetAttribute' => ['offer_id' => 'id']],
 		            [['warehouse_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Warehouse::className(), 'targetAttribute' => ['warehouse_id' => 'id']],
 		        ];

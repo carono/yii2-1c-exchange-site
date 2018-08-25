@@ -49,8 +49,8 @@ class Product extends BaseProduct implements ProductInterface
             $requisite = new Requisite();
             $requisite->name = $name;
             $requisite->save();
-        };
-        $this->addPivot($requisite, PvProductRequisite::className(), ['value' => $value]);
+        }
+        $this->addPivot($requisite, PvProductRequisite::class, ['value' => $value]);
     }
 
     /**
@@ -73,12 +73,15 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setProperty1c($property)
     {
-        $propertyModel = Property::createByMl($property);
-        $pv = $this->addPivot($propertyModel, PvProductProperty::className());
-        if ($value = PropertyValue::findOne(['accounting_id' => (string)$property->getValueModel()->ИдЗначения])) {
-            $pv->updateAttributes(['property_value_id' => $value->id]);
-            unset($pv);
+        $propertyModel = Property::findOne(['accounting_id' => $property->id]);
+        $propertyValue = $property->getValueModel();
+        if ($propertyAccountingId = (string)$propertyValue->ИдЗначения) {
+            $value = PropertyValue::findOne(['accounting_id' => $propertyAccountingId]);
+            $attributes = ['property_value_id' => $value->id];
+        } else {
+            $attributes = ['value' => $propertyValue->value];
         }
+        $this->addPivot($propertyModel, PvProductProperty::class, $attributes);
     }
 
     /**
@@ -88,8 +91,8 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function addImage1c($path, $caption)
     {
-        if (!$this->getImages()->andWhere(['size' => filesize($path)])->exists()) {
-            $this->addPivot(FileUpload::startUpload($path)->process(), PvProductImage::className());
+        if (!$this->getImages()->andWhere(['md5' => md5_file($path)])->exists()) {
+            $this->addPivot(FileUpload::startUpload($path)->process(), PvProductImage::class);
         }
     }
 
@@ -105,7 +108,7 @@ class Product extends BaseProduct implements ProductInterface
     {
         return [
             'timestamp' => [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'value' => new Expression('NOW()'),
             ],
         ];
@@ -115,9 +118,9 @@ class Product extends BaseProduct implements ProductInterface
     {
         if ($this->images) {
             return $this->images[0]->getImageUrl();
-        } else {
-            return '/images/product.png';
         }
+
+        return '/images/product.png';
     }
 
     /**
@@ -136,6 +139,7 @@ class Product extends BaseProduct implements ProductInterface
                     $propertyValue = new PropertyValue();
                     $propertyValue->name = (string)$value->Значение;
                     $propertyValue->property_id = $propertyModel->id;
+                    $propertyValue->accounting_id = (string)$value->ИдЗначения;
                     $propertyValue->save();
                     unset($propertyValue);
                 }

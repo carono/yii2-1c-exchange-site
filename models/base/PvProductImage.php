@@ -11,22 +11,17 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_product_images".
+ * This is the base-model class for table "{{%pv_product_images}}".
  *
  * @property integer $product_id
  * @property integer $image_id
+ * @property string $caption
  *
  * @property \app\models\FileUpload $image
  * @property \app\models\Product $product
  */
 class PvProductImage extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'image_id' => 'app\models\FileUpload',
-		'product_id' => 'app\models\Product',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -43,7 +38,10 @@ class PvProductImage extends ActiveRecord
 	{
 		return [
 		            [['product_id', 'image_id'], 'required'],
+		            [['product_id', 'image_id'], 'default', 'value' => null],
 		            [['product_id', 'image_id'], 'integer'],
+		            [['caption'], 'string', 'max' => 255],
+		            [['product_id', 'image_id'], 'unique', 'targetAttribute' => ['product_id', 'image_id']],
 		            [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\FileUpload::className(), 'targetAttribute' => ['image_id' => 'id']],
 		            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Product::className(), 'targetAttribute' => ['product_id' => 'id']],
 		        ];
@@ -72,7 +70,8 @@ class PvProductImage extends ActiveRecord
 	{
 		return [
 		    'product_id' => Yii::t('models', 'Product ID'),
-		    'image_id' => Yii::t('models', 'Image ID')
+		    'image_id' => Yii::t('models', 'Image ID'),
+		    'caption' => Yii::t('models', 'Caption')
 		];
 	}
 

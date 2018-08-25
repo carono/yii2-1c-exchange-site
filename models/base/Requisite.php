@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "requisite".
+ * This is the base-model class for table "{{%requisite}}".
  *
  * @property integer $id
  * @property string $name
@@ -21,9 +21,6 @@ use yii\helpers\ArrayHelper;
  */
 class Requisite extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -95,7 +92,7 @@ class Requisite extends ActiveRecord
 	 */
 	public function getProducts()
 	{
-		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('pv_product_requisite', ['requisite_id' => 'id']);
+		return $this->hasMany(\app\models\Product::className(), ['id' => 'product_id'])->viaTable('{{%pv_product_requisite}}', ['requisite_id' => 'id']);
 	}
 
 

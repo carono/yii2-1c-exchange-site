@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "specification".
+ * This is the base-model class for table "{{%specification}}".
  *
  * @property integer $id
  * @property string $name
@@ -22,9 +22,6 @@ use yii\helpers\ArrayHelper;
  */
 class Specification extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -98,7 +95,7 @@ class Specification extends ActiveRecord
 	 */
 	public function getOffers()
 	{
-		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_offer_specifications', ['specification_id' => 'id']);
+		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('{{%pv_offer_specifications}}', ['specification_id' => 'id']);
 	}
 
 

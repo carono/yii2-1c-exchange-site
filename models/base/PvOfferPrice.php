@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_offer_prices".
+ * This is the base-model class for table "{{%pv_offer_prices}}".
  *
  * @property integer $offer_id
  * @property integer $price_id
@@ -21,9 +21,6 @@ use yii\helpers\ArrayHelper;
  */
 class PvOfferPrice extends ActiveRecord
 {
-	protected $_relationClasses = ['offer_id' => 'app\models\Offer', 'price_id' => 'app\models\Price'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -40,7 +37,9 @@ class PvOfferPrice extends ActiveRecord
 	{
 		return [
 		            [['offer_id', 'price_id'], 'required'],
+		            [['offer_id', 'price_id'], 'default', 'value' => null],
 		            [['offer_id', 'price_id'], 'integer'],
+		            [['offer_id', 'price_id'], 'unique', 'targetAttribute' => ['offer_id', 'price_id']],
 		            [['offer_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Offer::className(), 'targetAttribute' => ['offer_id' => 'id']],
 		            [['price_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Price::className(), 'targetAttribute' => ['price_id' => 'id']],
 		        ];

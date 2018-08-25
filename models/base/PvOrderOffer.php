@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "pv_order_offers".
+ * This is the base-model class for table "{{%pv_order_offers}}".
  *
  * @property integer $order_id
  * @property integer $offer_id
@@ -25,13 +25,6 @@ use yii\helpers\ArrayHelper;
  */
 class PvOrderOffer extends ActiveRecord
 {
-	protected $_relationClasses = [
-		'offer_id' => 'app\models\Offer',
-		'order_id' => 'app\models\Order',
-		'price_type_id' => 'app\models\PriceType',
-	];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -48,8 +41,10 @@ class PvOrderOffer extends ActiveRecord
 	{
 		return [
 		            [['order_id', 'offer_id'], 'required'],
+		            [['order_id', 'offer_id', 'price_type_id'], 'default', 'value' => null],
 		            [['order_id', 'offer_id', 'price_type_id'], 'integer'],
 		            [['count', 'sum'], 'number'],
+		            [['order_id', 'offer_id'], 'unique', 'targetAttribute' => ['order_id', 'offer_id']],
 		            [['offer_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Offer::className(), 'targetAttribute' => ['offer_id' => 'id']],
 		            [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\Order::className(), 'targetAttribute' => ['order_id' => 'id']],
 		            [['price_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \app\models\PriceType::className(), 'targetAttribute' => ['price_type_id' => 'id']],

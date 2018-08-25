@@ -70,7 +70,7 @@ protected $_relationClasses = [];
      */
     public function getCosts()
     {
-        return $this->hasMany(\app\models\Cost::className(), ['type_id' => 'id']);
+        return $this->hasMany(\app\models\Cost::class, ['type_id' => 'id']);
     }
     public function getRelationClass($attribute)
     {

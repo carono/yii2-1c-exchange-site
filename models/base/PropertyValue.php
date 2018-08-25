@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "property_value".
+ * This is the base-model class for table "{{%property_value}}".
  *
  * @property integer $id
  * @property integer $property_id
@@ -23,9 +23,6 @@ use yii\helpers\ArrayHelper;
  */
 class PropertyValue extends ActiveRecord
 {
-	protected $_relationClasses = ['property_id' => 'app\models\Property'];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -41,6 +38,7 @@ class PropertyValue extends ActiveRecord
 	public function rules()
 	{
 		return [
+		            [['property_id'], 'default', 'value' => null],
 		            [['property_id'], 'integer'],
 		            [['name', 'accounting_id'], 'string', 'max' => 255],
 		            [['accounting_id'], 'unique'],

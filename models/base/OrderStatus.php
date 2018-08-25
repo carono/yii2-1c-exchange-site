@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "order_status".
+ * This is the base-model class for table "{{%order_status}}".
  *
  * @property integer $id
  * @property string $name
@@ -20,9 +20,6 @@ use yii\helpers\ArrayHelper;
  */
 class OrderStatus extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */

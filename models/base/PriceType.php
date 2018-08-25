@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "price_type".
+ * This is the base-model class for table "{{%price_type}}".
  *
  * @property integer $id
  * @property string $accounting_id
@@ -23,9 +23,6 @@ use yii\helpers\ArrayHelper;
  */
 class PriceType extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */

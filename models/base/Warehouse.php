@@ -11,7 +11,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the base-model class for table "warehouse".
+ * This is the base-model class for table "{{%warehouse}}".
  *
  * @property integer $id
  * @property string $name
@@ -22,9 +22,6 @@ use yii\helpers\ArrayHelper;
  */
 class Warehouse extends ActiveRecord
 {
-	protected $_relationClasses = [];
-
-
 	/**
 	 * @inheritdoc
 	 */
@@ -98,7 +95,7 @@ class Warehouse extends ActiveRecord
 	 */
 	public function getOffers()
 	{
-		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('pv_offer_warehouses', ['warehouse_id' => 'id']);
+		return $this->hasMany(\app\models\Offer::className(), ['id' => 'offer_id'])->viaTable('{{%pv_offer_warehouses}}', ['warehouse_id' => 'id']);
 	}
 
 
