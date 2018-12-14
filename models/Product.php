@@ -59,8 +59,9 @@ class Product extends BaseProduct implements ProductInterface
      */
     public function setGroup1c($group)
     {
-        $id = Group::find()->select(['id'])->andWhere(['accounting_id' => $group->id])->scalar();
-        $this->updateAttributes(['group_id' => $id]);
+        if ($group->id && ($id = Group::find()->select(['id'])->andWhere(['accounting_id' => $group->id])->scalar())) {
+            $this->updateAttributes(['group_id' => $id]);
+        }
     }
 
     /**
