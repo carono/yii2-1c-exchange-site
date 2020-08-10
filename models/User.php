@@ -4,7 +4,7 @@ namespace app\models;
 
 use carono\exchange1c\interfaces\PartnerInterface;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface, PartnerInterface
+class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface, PartnerInterface
 {
     public $id;
     public $username;
